@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/index.css">
+<script src="/js/angular.min.js"></script>
+<script src="/js/angular-route.min.js"></script>
+<script src="/js/angular-animate.min.js"></script>
+<script src="/js/index.js"></script>
+<style>
+    .view-animation.ng-enter, .view-animation.ng-leave {
+        transition:2s linear;
+        position:fixed;
+        left:0;
+        top:0;
+        transform-origin: left;
+        width:100%;
+    }
+    .view-animation.ng-enter {
+        transform:rotateY(180deg);
+    }
+    .view-animation.ng-leave,
+    .view-animation.ng-enter.ng-enter-active {
+        transform:rotateY(0deg);
+    }
+    .view-animation.ng-leave.ng-leave-active {
+        transform:rotateY(-180deg);
+    }
+</style>
+<body ng-app="myapp">
+<div ng-view class="view-animation">
+
+</div>
+</body>
+</html>

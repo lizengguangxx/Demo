@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .menus{
+        width: 200px;
+        height:50px;
+        line-height: 50px;
+        background: #ccc;
+        text-align: center;
+        overflow: hidden;
+        perspective: 1000px;
+    }
+    a{
+        display: block;
+        font-size: 20px;
+        color: #333;
+        text-decoration: none;
+    }
+    .menu{
+        width: 200px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        background: #ccc;
+        margin-top: 10px;
+        transform-origin: top;
+        transform: rotateX(90deg);
+    }
+    /*.menus:hover{*/
+        /*overflow: visible;*/
+    /*}*/
+    /*.menus:hover .menu{*/
+        /*transform: rotateX(0deg);*/
+    /*}*/
+</style>
+<body>
+<div class="menus">
+    <a href="">菜单一</a>
+    <div class="menu">
+        <a href="">菜单二</a>
+        <div class="menu">
+            <a href="">菜单三</a>
+            <div class="menu">
+                <a href="">菜单四</a>
+                <div class="menu">
+                    <a href="">菜单五</a>
+                    <div class="menu">
+                        <a href="">菜单六</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    var menus=document.querySelector(".menus");
+    var menu=document.querySelectorAll(".menu");
+    menus.onmouseover=function () {
+        menus.style.overflow="visible";
+        for(var i=0;i<5;i++){
+            menu[i].style.transition="all .5s linear "+(0.1*i)+"s";
+            menu[i].style.transform="rotateX(0deg)";
+        }
+    }
+    menus.onmouseout=function () {
+        for(var i=4;i>=0;i--){
+            menu[i].style.transition="all .5s linear "+(0.1*i)+"s";
+            menu[i].style.transform="rotateX(90deg)";
+        }
+        setTimeout(function () {
+            menus.style.overflow="hidden";
+        },500);
+    }
+</script>

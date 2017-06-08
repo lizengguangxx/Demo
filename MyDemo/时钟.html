@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>时钟</title>
+</head>
+<style>
+    .box{
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        margin: auto;
+        position: fixed;
+        left: 0;
+        top:0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,.02);
+        /*background: repeating-radial-gradient(#fff 5%,#000 10%,#fff 15%);*/
+        box-shadow: 0 0 10px rgba(0,0,0,.3) inset;
+        border:5px solid #999;
+    }
+    .dian{
+        width: 20px;
+        height: 20px;
+        background: #333;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        right:0;
+        z-index:100;
+        top:0;bottom: 0;
+        margin: auto;
+    }
+    .d{
+        width: 10px;
+        height: 10px;
+        background: skyblue;
+        border-radius: 50%;
+        margin:5px auto;
+    }
+</style>
+<body>
+    <div class="box">
+        <div class="dian">
+            <div class="d"></div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    window.onload=function () {
+        //60个时刻
+        var w,h;
+        var box=document.querySelector(".box");
+        for(var i=0;i<60;i++){
+            if(i%15==0){
+                w=8;
+                h=20;
+            }
+            else if(i%5==0){
+                w=6;
+                h=15;
+            }else{
+                w=4;
+                h=10;
+            }
+            var divs=document.createElement("DIV");
+            divs.style.cssText="border-radius:2px;width:"+w+"px;height:"+h+"px;background:skyblue;position:absolute;left:"+(300-w)/2+"px;transform-origin:center 150px;transform:rotate("+6*i+"deg)";
+            box.appendChild(divs);
+        }
+        /*
+        * 时针，分针，秒针
+        * */
+        var date=new Date();
+        var s=date.getHours();
+        var f=date.getMinutes();
+        var m=date.getSeconds();
+        var t1=setInterval(function () {
+            var date=new Date();
+            s=date.getHours();
+            f=date.getMinutes();
+            m=date.getSeconds();
+            shi.style.transform="rotate("+(s*30+f*6/12)+"deg)";
+            fen.style.transform="rotate("+f*6+"deg)";
+            miao.style.transform="rotate("+m*6+"deg)";
+        },1000);
+        var shi=zheng(12,80,"#333",s*30+f*6/12);
+        var fen=zheng(8,100,"#333",f*6);
+        var miao=zheng(6,120,"#333",m*6);
+        function zheng(w,h,c,j) {
+            var divz=document.createElement("DIV");
+            divz.style.cssText="border-radius:5px;transform-origin:center bottom;transform:rotate("+j+"deg);width:"+w+"px;height:"+h+"px;position:absolute;left:"+(300-w)/2+"px;top:"+(150-h)+"px;background:"+c+";";
+            box.appendChild(divz);
+            return divz;
+        }
+    }
+</script>

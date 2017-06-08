@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		canvas{
+			background: #ccc;
+			margin: auto;
+			position: fixed;
+			top: 0;bottom: 0;left: 0;right: 0;
+		}
+	</style>
+	<body>
+		<canvas id="" width="1200" height="600"></canvas>
+	</body>
+	<script>
+		var canvas=document.querySelector("canvas");
+		var cobj=canvas.getContext("2d");
+		//矩形运动
+//		function rect(){
+//			this.x=0;
+//			this.y=0;
+//			this.w=100;
+//			this.h=100;
+//			this.speedx=10;
+//			this.speedy=10;
+//		}
+//		rect.prototype={
+//			draw:function(){
+//				cobj.save();
+//				cobj.translate(this.x,this.y);
+//				cobj.fillRect(0,0,this.w,this.h);
+//				cobj.restore();
+//			},
+//			update:function(){
+//				this.x+=this.speedx;
+//				this.y+=this.speedy;
+//			}
+//		}
+		//圆运动
+		function yuan(){
+			this.r=5+5*Math.random();
+			this.x=canvas.width/2;
+			this.y=canvas.height/2;
+			this.color="rgb("+parseInt(255*Math.random())+","+parseInt(255*Math.random())+","+parseInt(255*Math.random())+")";
+			this.speedx=10*Math.random()-5;
+			this.speedy=-5;
+			this.g=0.5;
+		}
+		yuan.prototype={
+			draw:function(){
+				cobj.save();
+				cobj.beginPath();
+				cobj.translate(this.x,this.y);
+				cobj.arc(0,0,this.r,0,2*Math.PI);
+				cobj.fillStyle=this.color;
+				cobj.fill();
+				cobj.restore();
+			},
+			update:function(){
+				this.speedy+=this.g;
+				this.x+=this.speedx;
+				this.y+=this.speedy;
+			}
+		}
+		var arr=[];
+		var ox=600,oy=300;
+		canvas.onmousemove=function(e){
+			ox=e.offsetX;
+			oy=e.offsetY;
+		}
+		var t=setInterval(function(){
+			cobj.clearRect(0,0,1200,600);
+			var yuan1=new yuan();
+			yuan1.x=ox;
+			yuan1.y=oy;
+			arr.push(yuan1);
+			for(var i=0;i<arr.length;i++){
+				arr[i].draw();
+				arr[i].update();
+			}
+			if(arr.length>100){
+				arr.shift();
+			}
+		},50)
+	</script>
+</html>

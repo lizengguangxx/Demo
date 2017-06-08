@@ -1,0 +1,120 @@
+.box{
+    position: fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #FCF5CB;
+}
+.left{
+    height: 100%;
+    width: 30%;
+    float: left;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-right:2px solid #ddd;
+}
+.sousuo{
+    width: 100%;
+    height: 80px;
+    padding: 20px 10%;
+    border-bottom: 1px solid #ddd;
+}
+.listbox{
+    width: 100%;
+    height: auto;
+}
+.list{
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 30px;
+    padding-top: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.num{
+    color: red;
+}
+.add{
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 10px;
+    background: #FCF5CB;
+}
+.s{
+    padding-left: 50px;
+    position: relative;
+}
+.s:hover span{
+   opacity: 1;
+}
+.s>input{
+    width: 200px;
+    background: transparent;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}
+.s>span{
+    position: absolute;
+    right: 15px;
+    top:15px;
+    opacity: 0;
+    color: red;
+    transition:opacity .5s;
+}
+.right{
+    width: 70%;
+    height: 100%;
+    float: right;
+}
+.r-tit{
+    position: relative;
+    width: 90%;
+    height: 70px;
+    margin-left: 5%;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #ddd;
+}
+.r-tit>span{
+    font-size: 30px;
+    line-height: 70px;
+}
+.addtit{
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.r-show{
+    width: 80%;
+    height: 30px;
+    margin-left: 10%;
+    margin-top: 15px;
+    position: relative;
+    cursor: pointer;
+    border-bottom: 2px solid greenyellow;
+}
+.r-show:hover .del{
+    opacity: 1;
+}
+.r-show>input{
+    width: 600px;
+    height: 24px;
+    margin-left: 30px;
+    background: transparent;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}
+.del{
+    position: absolute;
+    right: 20px;
+    top:5px;
+    opacity: 0;
+    transition: all .5s;
+}

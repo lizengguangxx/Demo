@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<script src="js/function.js"></script>
+<style>
+	.box{
+		width: 200px;
+		height: 200px;
+		position: fixed;
+		left: 0;
+		top: 0;
+		background: yellowgreen;
+	}
+</style>
+<body>
+	<div class="box"></div>
+</body>
+<script>
+	var box=$(".box")[0];
+	var cw=document.documentElement.clientWidth;//浏览器的宽
+	var ch=document.documentElement.clientHeight;
+	var ow=box.offsetWidth;//盒子的宽
+	var oh=box.offsetHeight;
+	window.onresize=function(){//浏览器改变大小重新获取
+		cw=document.documentElement.clientWidth;
+		ch=document.documentElement.clientHeight;
+		var ol=box.offsetLeft;
+		var ot=box.offsetTop;
+		if(ol>cw-ow){box.style.left=(cw-ow)+"px";};//将盒子拖回到浏览器
+		if(ot>ch-oh){box.style.top=(ch-oh)+"px";};
+	}
+	box.onmousedown=function(e){
+		var e=e||window.event;
+		var ox=e.offsetX;
+		var oy=e.offsetY;//到盒子左上角的距离
+		document.onmousemove=function(e){
+			var e=e||window.event;
+			var cx=e.clientX;//到浏览器左上角的距离
+			var cy=e.clientY;
+			var x=cx-ox;
+			var y=cy-oy;
+			if(x<0){x=0;};//拖回盒子
+			if(y<0){y=0;};
+			if(x>cw-ow){x=cw-ow};
+			if(y>ch-oh){y=ch-oh};
+			box.style.left=x+"px";
+			box.style.top=y+"px";
+		}
+		document.onmouseup=function(){
+			//清空事件
+			document.onmousemove=null;
+			document.onmouseup=null;
+		}
+	}
+</script>
+</html>

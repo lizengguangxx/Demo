@@ -1,0 +1,329 @@
+.box{
+    margin:10px 50px;
+}
+.tou{
+    width: 300px;
+    height: 300px;
+    border:2px solid #333;
+    border-radius: 140px;
+    position: relative;
+    box-shadow: -5px 10px 20px rgba(0,0,0,.5);
+    background: linear-gradient(-135deg,rgb(119,219,243) 10%,rgb(14,173,214) 70%,rgb(0,0,0));
+}
+.lian{
+    width: 240px;
+    height: 215px;
+    background: #fff;
+    margin: auto;
+    border-radius: 50%;
+    margin-top: 85px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 3px -3px 10px rgba(0,0,0,.2) inset;
+    border:2px solid #333;
+}
+.zui{
+    width: 200px;
+    height: 150px;
+    border-radius: 50%;
+    margin: auto;
+    border:2px solid #333;
+}
+.zuifu{
+    width: 220px;
+    height: 150px;
+    border-radius: 50%;
+    margin-left: -10px;
+    margin-top: -4px;
+    background: #fff;
+    position: relative;
+}
+.shu{
+    width: 3px;
+    height: 100px;
+    background: #000;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: -5px;
+}
+.bizi{
+    width: 32px;
+    height: 32px;
+    border:2px solid #333;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 30px;
+    border-radius: 50%;
+    background:rgb(201,62,0);
+}
+.bizil{
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    margin-top: 10px;
+    margin-left: 16px;
+    box-shadow: 0 0 6px 4px rgba(255,255,255,1);
+    background: #fff;
+}
+.huzi{
+    position: absolute;
+    background: #333;
+    width: 60px;
+    height: 2px;
+}
+.huzi1{
+    left: 26px;
+    top: 65px;
+    transform: rotate(20deg);
+}
+.huzi2{
+    left: 26px;
+    top: 85px;
+}
+.huzi3{
+    left: 26px;
+    top: 105px;
+    transform: rotate(-20deg);
+}
+.huzi4{
+    right: 26px;
+    top: 65px;
+    transform: rotate(-20deg);
+}
+.huzi5{
+    right: 26px;
+    top: 85px;
+}
+.huzi6{
+    right: 26px;
+    top: 105px;
+    transform: rotate(20deg);
+}
+.leftyan,.rightyan{
+    width: 72px;
+    height: 83px;
+    border:2px solid #333;
+    position: absolute;
+    top:42px;
+    border-radius: 35px;
+    background: #fff;
+}
+.leftyan{
+    left: 74px;
+}
+.rightyan{
+    right: 74px;
+}
+.lyanqiu,.ryanqiu{
+    width: 15px;
+    height: 15px;
+    background: #333;
+    border-radius: 50%;
+}
+.lyanqiu{
+    margin-left: 50px;
+    margin-top: 50px;
+}
+.ryanqiu{
+    margin-left: 10px;
+    margin-top: 50px;
+}
+.weijin{
+    width: 230px;
+    height:20px;
+    border:2px solid #000;
+    position: relative;
+    z-index:10;
+    background:linear-gradient(rgb(200,64,0),rgb(137,12,0));
+    left: 35px;
+    top: -30px;
+    border-radius: 10px;
+}
+.lingdang{
+    width: 40px;
+    height: 40px;
+    border:2px solid #333;
+    border-radius: 50%;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right:0;
+    top:5px;overflow: hidden;
+    background: linear-gradient(rgb(246,238,39),rgb(186,178,7));
+}
+.heng1,.heng2{
+    height: 2px;
+    width: 100%;
+    background: #000;
+    margin-top: 2px;
+}
+.heng1{
+    margin-top: 10px;
+}
+.yuan1{
+    width: 12px;
+    height: 10px;
+    border-radius: 5px;
+    background: #000;
+    margin:4px auto 0;
+    position: relative;
+}
+.shu2{
+    height: 10px;
+    width: 2px;
+    background: #000;
+    margin: auto;
+}
+.yuan2{
+    width: 3px;
+    height: 3px;
+    z-index:20;
+    background: #fff;
+    position: absolute;
+    left: 10px;
+    top:-10px;
+    box-shadow: 0 0 8px 5px rgb(255,255,255);
+}
+.shenti{
+    width: 220px;
+    height: 165px;
+    position: relative;
+    left: 42px;
+    top: -33px;
+    z-index:8;
+    border: 2px solid #333;
+    background:linear-gradient(90deg,rgb(0,136,172),rgb(6,180,227));
+}
+.duzi{
+    width: 170px;
+    height: 170px;
+    background: linear-gradient(-130deg,#fff 75%,rgba(0,0,0,.7));
+    border-radius: 50%;
+    margin: auto;
+    margin-top: -40px;
+    border:2px solid #333;
+}
+.duzifu{
+    width: 120px;
+    height: 40px;
+    margin-top: -5px;
+    margin-left: 20px;
+    background: #fff;
+}
+.koudai{
+    width: 130px;
+    height: 65px;
+    border-bottom-left-radius: 65px;
+    border-bottom-right-radius: 65px;
+    border: 2px solid #000;
+    position: absolute;
+    bottom: 45px;
+    box-shadow: 5px -5px 10px rgba(0,0,0,.1) inset;
+}
+.wei{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: -2px;
+    width: 20px;
+    height: 10px;
+    border:2px solid #333;
+    border-bottom: 0;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    background: #fff;
+    box-shadow: -5px 0 8px rgba(0,0,0,.5) inset;
+}
+.leftgebo{
+    width: 80px;
+    height: 50px;
+    position:relative;
+    top: -190px;
+    left: -5px;
+    border: 2px solid #333;
+    transform: rotate(-30deg);
+    background: rgb(0,131,166);
+}
+.leftshou{
+    width: 60px;
+    height:60px;
+    background: linear-gradient(90deg,rgb(210,210,210),#fff,rgb(210,210,210));
+    border-radius: 50%;
+    position: absolute;
+    left: -50px;
+    top:-8px;
+    border: 2px solid #333;
+}
+.rightgebo{
+    width: 80px;
+    height: 50px;
+    position:relative;
+    top: -240px;
+    left: 240px;
+    border: 2px solid #333;
+    transform: rotate(30deg);
+    background: rgb(7,190,234);
+    box-shadow: 0 -5px 10px rgba(0,0,0,0.5) inset;
+}
+.rightshou{
+    width: 60px;
+    height:60px;
+    background: linear-gradient(#fff 70%,#ddd);
+    border-radius: 50%;
+    position: absolute;
+    left: 50px;
+    top:-8px;
+    border: 2px solid #333;
+}
+.zsshu,.ysshu{
+    background: rgb(0,137,174);
+    width: 2px;
+    height: 50px;
+    z-index: 22;
+    position: absolute;
+    left: -2px;
+    top:2px;
+}
+.ysshu{
+    left: 100%;
+    background: rgb(6,188,232);
+}
+.foot{
+    width: 280px;
+    height: 40px;
+    position: relative;
+    z-index:10;
+    top: -145px;
+    left:15px;
+}
+.leftfoot{
+    width: 125px;
+    height: 30px;
+    background: linear-gradient(-90deg,#fff 80%,rgb(177,177,177));
+    border: solid 2px #333;
+    margin-left: 8px;
+    float: left;
+    border-top-left-radius: 80px;
+    border-bottom-left-radius: 40px;
+    border-top-right-radius: 60px;
+    border-bottom-right-radius: 60px;
+    box-shadow: -5px 0 10px rgba(0,0,0,.5);
+}
+.rightfoot{
+    width: 125px;
+    height: 30px;
+    float: left;
+    margin-left: 2px;
+    background: linear-gradient(-90deg,#fff 80%,rgb(177,177,177));
+    border: solid 2px #333;
+    border-top-left-radius: 60px;
+    border-bottom-left-radius: 60px;
+    border-top-right-radius: 80px;
+    border-bottom-right-radius: 40px;
+    box-shadow: -5px 0 10px rgba(0,0,0,.5);
+}

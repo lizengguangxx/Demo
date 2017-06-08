@@ -1,0 +1,9 @@
+{
+  "host":"sqld.duapp.com",
+  "port":4050,
+  "user":"9e281fa12a9640228688b67c4f379604",
+  "password":"f334407a5f424391b13784d179a3906a",
+  "database":"ffNfqOhiJsTZZadUvghP",
+  "connectionLimit": 10000,
+  "multipleStatements": true
+}

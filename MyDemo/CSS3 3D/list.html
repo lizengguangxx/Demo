@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .menus{
+        width:200px;
+        height:30px;
+        /*border:1px solid #000;*/
+    }
+    .menu{
+        display: block;
+        width: 100%;
+        height:100%;
+
+    }
+    .son{
+        width: 100%;
+        height:100%;
+        transform-origin:top;
+        transition:transform 2s linear ;
+        transform: rotateX(90deg);
+
+    }
+    a{
+        display: block;
+        width: 100%;
+        height:100%;
+        background: red;
+        margin-top: 5px;
+        text-align: center;
+        line-height: 30px;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 8px;
+    }
+    .menus:hover .son{
+        transform: rotate(0deg);
+    }
+</style>
+<!--<script>-->
+    <!--window.onload=function () {-->
+
+        <!--var menus=document.querySelector(".menus");-->
+        <!--var sons=document.querySelectorAll(".son");-->
+
+        <!--menus.onmouseover=function () {-->
+            <!--clearInterval(t);-->
+
+            <!--for(var i=0;i<sons.length;i++){-->
+                <!--sons[i].style.cssText="transform:rotate(0deg);transition:transform 0.5s linear "+0.1*i+"s";-->
+            <!--}-->
+        <!--}-->
+        <!--var t;-->
+        <!--menus.onmouseout=function () {-->
+            <!--clearTimeout(t);-->
+                <!--t=setTimeout(function () {-->
+<!--//                    alert(1);-->
+                    <!--for(var i=0;i<sons.length;i++){-->
+
+                        <!--sons[i].style.cssText="transform:rotateX(90deg);transition:transform 0.5s linear "+(0.5-0.1*i)+"s";-->
+                    <!--}-->
+                <!--},0);-->
+
+
+        <!--}-->
+
+    <!--}-->
+<!--</script>-->
+<body>
+<div class="menus">
+    <a href="javascript:;" class="menu">菜单</a>
+    <div class="son">
+        <a href="">菜单一</a>
+        <div class="son">
+            <a href="">菜单二</a>
+            <div class="son">
+                <a href="">菜单三</a>
+                <div class="son">
+                    <a href="">菜单四</a>
+                    <div class="son">
+                        <a href="">菜单五</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

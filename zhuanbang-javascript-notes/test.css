@@ -1,0 +1,31 @@
+ul {  padding: 0;  }
+li {  list-style: none;  }
+.flex-container {
+    display: flex;
+    background: deepskyblue;
+    width: 100%;
+    height: 100%;
+    margin: 5px auto;
+}
+
+
+.flex-container.second {
+    flex-flow: row wrap;
+    -webkit-flex-flow: row wrap;
+}
+.flex-item {
+    background: tomato;
+    padding: 5px;
+    /*width: 50%;
+    height: 50%;*/
+    flex-grow:100;
+    margin: 5px;
+    line-height: 80px;
+    color: white;
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+}
+.flex-demo {
+    display: flex;
+}

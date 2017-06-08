@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    /*body{*/
+        /*border: 1px solid #DFDFDF;*/
+        /*perspective: 500px;*/
+    /*}*/
+    /*.out{*/
+        /*width: 200px;*/
+        /*height:200px;*/
+        /*margin:auto;*/
+        /*background: red;*/
+        /*transition: transform 2s linear;*/
+        /*!*transform-origin: right;*!*/
+        /*transform-style: preserve-3d;*/
+    /*}*/
+    /*.inner{*/
+        /*width: 100px;*/
+        /*height:100px;*/
+        /*background: yellowgreen;*/
+        /*transform: rotateY(50deg);*/
+    /*}*/
+    /*div:hover{*/
+        /*transform: rotate(180deg);*/
+    /*}*/
+    html{
+        background: radial-gradient(ellipse at center, #430d6d 0%, #000000 100%);
+        width: 100%;
+        height:100%;
+    }
+    .sence{
+        width: 300px;
+        height:300px;
+        /*padding: 150px;*/
+        position: fixed;
+        top: 0;
+        left:0;
+        right:0;
+        bottom:0;
+        margin: auto;
+        /*perspective: 999999px;*/
+        /*border:1px solid #000;*/
+    }
+    .box{
+        width: 150px;
+        height:150px;
+        /*border: 10px solid #fff;*/
+        position: relative;
+        transform-style: preserve-3d;
+        /*transition: transform 2s linear;*/
+        transform-origin: center center 75px;
+        animation:  myfirst 3s linear infinite alternate;
+    }
+
+    .box div{
+        width: 100%;
+        height:100%;
+        position: absolute;
+        top:0;
+        left:0;
+        font-size: 30px;
+        text-align: center;
+        line-height: 150px;
+        border-radius: 5px;
+        /*transform-style: preserve-3d;*/
+        box-shadow: 0 0 50px 10px #fff ;
+        opacity: 0.8;
+    }
+    @keyframes myfirst {
+        from {
+            /*-webkit-transform: translateZ(-10em) rotateX(0) rotateY(0deg);*/
+            transform: scale(0,0) skew(0) translate3d(0,0,0) rotateX(0deg) rotateY(0deg) rotateY(0deg);
+        }
+        to {
+            /*-webkit-transform: translateZ(-10em) rotateX(360deg) rotateY(360deg);*/
+            transform: scale(2,2) skew(0deg) translate3d(10px,20px,30px) rotateX(360deg) rotateY(360deg) rotateY(360deg);
+        }
+        /*0%   {background:red;}*/
+        /*20%  {background:yellow;}*/
+        /*40%  {background:black;}*/
+        /*60%  {background:yellowgreen;}*/
+        /*80%  {background:dodgerblue;}*/
+        /*100% {background:orange;}*/
+        /*0%   {background:red; left:75px; top:0px;transform: scale(0,0) skew(0) translate(0,0) rotateX(0deg) rotateY(0deg) rotateY(0deg);}*/
+        /*25%  {background:yellow; left:150px; top:75px;}*/
+        /*50%  {background:deeppink; left:75px; top:150px;}*/
+        /*75%  {background:yellowgreen; left:0px; top:75px;}*/
+        /*100% {background:orange; left:75px; top:0px;transform: scale(2,2) skew(0deg) translate(10px,10px) rotateX(360deg) rotateY(360deg) rotateY(360deg);}*/
+
+    }
+    .box div:nth-child(1){
+        background: red;
+        transform-origin: top;
+        transform: rotateX(90deg);
+        /*animation: myfirst 1s linear 0s infinite alternate;*/
+    }
+    .box div:nth-child(2){
+        background: yellowgreen;
+        transform-origin:left;
+        transform: rotateY(-90deg);
+        /*animation: myfirst 2s linear 0s infinite alternate;*/
+    }
+    .box div:nth-child(3){
+        background: #000;
+        /*animation: myfirst 3s linear 0s infinite alternate;*/
+        /*backface-visibility:visible;*/
+    }
+    .box div:nth-child(4){
+        background: orange;
+        transform-origin:right;
+        transform: rotateY(90deg);
+        /*animation: myfirst 4s linear 0s infinite alternate;*/
+    }
+    .box div:nth-child(5){
+        background: yellow;
+        transform-origin: bottom;
+        transform: rotateX(-90deg);
+        /*animation: myfirst 5s linear 0s infinite alternate;*/
+    }
+    .box div:nth-child(6){
+        background: dodgerblue;
+        transform: translateZ(150px);
+        /*animation: myfirst 6s linear 0s infinite alternate;*/
+    }
+    /*.sence:hover .box{*/
+        /*!**/
+        /*向量 矢量  有大小有方向*/
+
+        /*单位向量*/
+
+        /*标量 有大小没方向*/
+
+        /**!*/
+        /*transform: rotate3d(1,1,1,360deg);*/
+    /*}*/
+
+    .dian6{
+        width: 30px;
+        height: 0;
+        border-bottom:30px solid #fff;
+        border-radius: 50%;
+        margin-left: 16px;
+        margin-top: 30px;
+        float: left;
+    }
+    .dian5{
+        width: 30px;
+        height: 0;
+        border-bottom:30px solid #fff;
+        border-radius: 50%;
+    }
+    .dian5-tl{
+         position: absolute;
+         top: 20px;
+         left:20px;
+     }
+    .dian5-tr{
+        position: absolute;
+        top: 20px;
+        right:20px;
+    }
+    .dian5-bl{
+        position: absolute;
+        bottom: 20px;
+        left:20px;
+    }
+    .dian5-br{
+        position: absolute;
+        bottom: 20px;
+        right:20px;
+    }
+    .dian5-c{
+        float: left;
+        position: absolute;
+        top: 0;left: 0;
+        right:0;
+        bottom: 0;
+        margin: auto;
+    }
+
+</style>
+<script>
+    window.onload=function () {
+        var cw=document.documentElement.clientWidth;
+        var ch=document.documentElement.clientHeight;
+        var box=document.querySelector(".box");
+        document.onmousedown=function (e) {
+            document.onmousemove=function (e) {
+                var cx=e.clientX;
+                var cy=e.clientY;
+                var x=cx-cw/2;
+                var y=cy-ch/2; 
+                var len=Math.sqrt((x-cw)*(x-cw)+(y-ch)*(y-ch));
+                console.log(len,x,y)
+                box.style.transform="rotate3d("+-y+","+x+",0,"+len+"deg)";
+                return false;
+            }
+            document.onmouseup=function () {
+                document.onmousemove=null;
+                document.onmouseup=null;
+            }
+        }
+    }
+</script>
+<body>
+<div class="sence">
+    <div class="box">
+        <div>
+            <span class="dian5 dian5-c"></span>
+        </div>
+        <div>
+            <span class="dian5 dian5-tl"></span>
+            <span class="dian5 dian5-br"></span>
+        </div>
+        <div>
+            <span class="dian5 dian5-tl"></span>
+            <span class="dian5 dian5-c"></span>
+            <span class="dian5 dian5-br"></span>
+        </div>
+        <div>
+            <span class="dian5 dian5-tl"></span>
+            <span class="dian5 dian5-tr"></span>
+            <span class="dian5 dian5-bl"></span>
+            <span class="dian5 dian5-br"></span>
+        </div>
+        <div>
+            <span class="dian5 dian5-tl"></span>
+            <span class="dian5 dian5-tr"></span>
+            <span class="dian5 dian5-c"></span>
+            <span class="dian5 dian5-bl"></span>
+            <span class="dian5 dian5-br"></span>
+        </div>
+        <div>
+            <span class="dian6"></span>
+            <span class="dian6"></span>
+            <span class="dian6"></span>
+            <span class="dian6"></span>
+            <span class="dian6"></span>
+            <span class="dian6"></span>
+        </div>
+    </div>
+
+</div>
+    <!--<div class="out">-->
+        <!--<div class="inner"></div>-->
+    <!--</div>-->
+</body>
+</html>

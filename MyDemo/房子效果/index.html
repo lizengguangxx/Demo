@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Title</title>
+</head>
+<style>
+    html,body{
+        padding:0;
+        margin: 0;
+        width: 100%;
+        height:100%;
+    }
+    .dbox{
+        width: 100%;
+        height:100%;
+        perspective: 800px;
+        transition: transform 1s linear;
+        transform: scale(0.7,0.7);
+    }
+    .box{
+        width: 100%;
+        height:100%;
+        transition: transform 3s linear;
+        position: relative;
+        transform-style: preserve-3d;
+    }
+    .box div{
+        position: absolute;
+        box-shadow: 0 0 30px rgba(0,0,0,.5) inset;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .box div:nth-child(1){
+        top:0;
+        transform-origin: left;
+        transform: rotateY(-90deg);
+        background: #ccc;
+    }
+    .box div:nth-child(2){
+        top:0;
+        transform-origin: right;
+        transform: rotateY(90deg);
+        background: #ccc;
+    }
+    .box div:nth-child(3){
+        bottom:0;
+        transform-origin: bottom;
+        transform: rotateX(-90deg);
+        background: #ccc url(footer.jpg) center center;
+    }
+    .box div:nth-child(4){
+        top:0;
+        transform-origin: top;
+        transform: rotateX(90deg);
+        background: #ccc url(tianhua.jpg) center center;
+    }
+    .box div:nth-child(5){
+        top:0;
+        background: #ccc url(2.jpg) center center no-repeat;
+        background-size: contain;
+    }
+    .box div:nth-child(6){
+        top:0;
+        background: #ccc url(1.jpg) center center no-repeat;
+    }
+</style>
+<body>
+<div class="dbox">
+    <div class="box">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+</body>
+<script>
+    var dbox=document.querySelector(".dbox");
+    var box=document.querySelector(".box");
+    var widths=document.documentElement.clientWidth;
+    var heights=document.documentElement.clientHeight;
+    var son=box.querySelectorAll("div");
+    box.style.transformOrigin="center center "+(widths/2)+"px";
+    son[2].style.height=widths+"px";
+    son[3].style.height=widths+"px";
+    son[5].style.transform="translateZ("+widths+"px)";
+    setTimeout(function () {
+        box.style.transform="rotateY(180deg)";
+    },3000);
+    var flag=true;
+    var du=180;
+    dbox.ondblclick=function () {
+        if(flag){
+            flag=false;
+            dbox.style.transform="scale(1,1)";
+        }else{
+            flag=true;
+            dbox.style.transform="scale(.7,.7)";
+        }
+    }
+</script>
+</html>

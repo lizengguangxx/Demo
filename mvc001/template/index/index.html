@@ -1,0 +1,139 @@
+{include file="index/header.html"}
+<link rel="stylesheet" href="{CSS_PATH}/bootstrap.min.css" />
+<link rel="stylesheet" href="{CSS_PATH}/index/index1.css" />
+<script src="{JS_PATH}/jquery.min.js"></script>
+<script src="{JS_PATH}/index.js"></script>
+<div class="neikuan">
+	<div class="qianyan">
+		<img src="{IMG_PATH}/zhenzhen1.jpg" alt="" class="hyx-photo"/>
+		<p class="hyx-p">
+				&nbsp;&nbsp;&nbsp;&nbsp;从不羡慕别人的优秀，因为相信自己也可以优秀。
+				闲下来时看看书，书本里的故事，总有你学到的人生！！
+		</p>
+		<p class="hyx-span">---By:<span>黄月霞</span><p>
+		<img src="{IMG_PATH}/555.png" alt="" class="hyx-img"/>
+	</div>
+	<div class="ban">
+		<ul class="banner">
+			<li class="one"><img src="{IMG_PATH}/s-banner1.jpg" alt="" /></li>
+			<li><img src="{IMG_PATH}/s-banner3.jpg" alt="" /></li>
+			<li><img src="{IMG_PATH}/s-banner4.jpg" alt="" /></li>
+			<li><img src="{IMG_PATH}/s-banner5.jpg" alt="" /></li>
+		</ul>
+		<div class="xin">
+			<div class="alert alert-success" role="alert">
+			技能专区
+			</div>
+			<!--<p class="ist-group-item jineng"></p>-->
+			<span class="label label-default">HTML5</span>
+			<span class="label label-primary">CSS3</span>
+			<span class="label label-success">Jquery</span>
+			<span class="label label-info">JavaScript</span>
+			<span class="label label-warning">node</span>
+			<span class="label label-default">angularjs</span>
+			<span class="label label-primary">php</span>
+			<span class="label label-danger">ajax</span>
+			
+			<span class="label label-success">touch</span>
+			<span class="label label-warning">less</span>
+			<span class="label label-info">zepto</span>
+		</div>
+	</div>
+	
+	<div class="hyx-con"> 
+		<div class="left">
+			<div class="alert alert-warning" role="alert">热门文章</div>
+			<!--<h6 class="ist-group-item wenzhang"></h6>-->
+			<hr />
+			<ul class="list">
+				{foreach $result as $v}
+				<li>
+					<div class="photo">
+						<img src="{IMG_PATH}/g.jpg" alt="" />
+					</div>
+					<span class="aname">{$v["uid"]}</span>
+					<span class="ttime">{$v["stime"]}</span><br><br>
+					<a href="index.php?m=index&f=content&a=show&id={$v['sid']}" class="tit">{$v["stitle"]}</a>
+					<!--<p>对不同的终端做响应，称之为响应式。</p>-->
+					<br>
+					<!--<a href="index.php?m=index&f=content&a=show&id={$v['sid']}" class="coon">查看文章&nbsp;》</a>-->
+					<span>浏览数{$v["hits"]}</span>
+					<br>
+					<br>
+				</li>
+				{/foreach}
+			</ul>
+			<!--{foreach $result as $v}
+				<li><a href="index.php?m=index&f=content&a=show&id={$v['sid']}">{$v["stitle"]}</a></li>
+			{/foreach}-->
+		</div>
+		<div class="con-right1">
+			<div class="alert alert-info" role="alert">书籍专区</div>
+			<div class="shuji">
+			<span><a href="https://book.douban.com/subject/2308234/">1、《CSS权威指南》第三版</a></span>
+			<img src="{IMG_PATH}/css3.jpg" alt="" />
+			<p>这本书实在太适合小白用户了，是一本为初学者清扫障碍的书籍。同行一致认为这本书是学习CSS基础的首选。CSS界权威Meyer大师的作品，翻译水平也灰常赞！</p>
+			</div>
+			<div class="shuji">
+			<span><a href="https://book.douban.com/subject/1921890/">2、《JavaScriptDOM编程艺术》</a></span>
+			<img src="{IMG_PATH}/js.jpg" alt="" />
+			<p>此书绝对是入门好书，简洁优美的文笔简直是工具书中的典范啊有木有！
+
+这本书讲述了JavaScript和DOM的基础知识，但重点放在DOM编程技术背后的思路和原则，然后将这些概念贯穿在书中的所有代码示例中，使你看到用来创建图片库页面的脚本、用来创建动画效果的脚本和用来丰富页面元素呈现效果的脚本，最后结合所讲述的内容创建了一个实际的网站。</p>
+			</div>
+			
+			<div class="shuji">
+			<span><a href="https://book.douban.com/subject/10549733/">3、《JavaScript权威指南》第6版</a></span>
+			<img src="{IMG_PATH}/js1.jpg" alt="" />
+			<p>这本书非常适合初级、中级程序员，是学习核心JavaScript语言和由Web浏览器定义的JavaScript API的指南和综合参考手册。
+
+第6版涵盖HTML 5和ECMAScript 5。很多章节完全重写，紧跟当今最佳Web开发实践。本书新增章节描述了jQuery和服务器端JavaScript。</p>
+			</div>
+			<div class="shuji">
+			<span><a href="http://www.jb51.net/books/92918.html">4、《锋利的jQuery》第二版</a></span>
+			<img src="{IMG_PATH}/jq.jpg" alt="" />
+			<p>入门首选，简单易懂，非常实在。《锋利的jQuery(第2版)》循序渐进地对jQuery的各种函数和方法调用进行了介绍，对jQuery分析的逻辑非常值得学习。</p>
+			</div>
+			</div>
+		<!--<ul class="hyx-right">
+			作者专区
+			<li>
+				<img src="{IMG_PATH}/06c537002583.png" alt="" class="avater"/>
+				<a href="" class="hyx-name">刘淼</a>
+				<p class="p">写了234.2K字 · 13.8K喜欢</p>
+			</li>
+			<li>
+				<img src="{IMG_PATH}/21cc1916b6a4.jpg" alt="" class="avater"/>
+				<a href="" class="hyx-name">茜瞄</a>
+				<p class="p">写了208.2K字 · 11.2K喜欢</p>
+			</li>
+			<li>
+				<img src="{IMG_PATH}/ef87d476-c24a-4645-91df-49c729f01b78.png" alt="" class="avater"/>
+				<a href="" class="hyx-name">企鹅吃喝指南</a>
+				<p class="p">写了713.8K字 · 9.2K喜欢</p>
+			</li>
+			<li>
+				<img src="{IMG_PATH}/jianshu.png" alt="" class="avater"/>
+				<a href="" class="hyx-name">铃档子</a>
+				<p class="p">写了80.4K字 · 12.4K喜欢</p>
+			</li>
+			<li>
+				<img src="{IMG_PATH}/aefca54cec0b.jpg" alt="" class="avater"/>
+				<a href="" class="hyx-name">灵夜狼</a>
+				<p class="p">写了80.4K字 · 12.4K喜欢</p>
+			</li>
+			<li>
+				<img src="{IMG_PATH}/44ef59a82637.jpg" alt="" class="avater"/>
+				<a href="" class="hyx-name">简黛玉</a>
+				<p class="p">写了80.4K字 · 12.4K喜欢</p>
+			</li>
+			<li>
+				<img src="{IMG_PATH}/dcde4ea1-1689-4399-95ba-33dcb3f4e338.jpg" alt="" class="avater"/>
+				<a href="" class="hyx-name">我是隐形的</a>
+				<p class="p">写了80.4K字 · 12.4K喜欢</p>
+			</li>
+		</ul>-->
+	</div>
+</div>
+</body>
+</html>

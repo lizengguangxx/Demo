@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .dbox{
+        width: 200px;
+        height: 200px;
+        border:2px solid red;
+        margin: auto;
+        position: fixed;
+        top:0;
+        bottom:0;
+        left:0;
+        right: 0;
+    }
+    .box{
+        width: 200px;
+        height: 200px;
+        position: relative;
+        /*transition:all 3s;*/
+        transform-origin: center center 75px;
+        transform-style: preserve-3d;
+    }
+    .box>div{
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        left:0;
+        top:0;
+        text-align: center;
+        line-height: 200px;
+    }
+    .box div:nth-child(1){
+        transform: rotateX(90deg);
+        transform-origin: top;
+        background: red;
+    }
+    .box div:nth-child(2){
+        transform: rotateY(-90deg);
+        transform-origin: left;
+        background: skyblue;
+    }
+    .box div:nth-child(3){
+        transform: rotateY(90deg);
+        transform-origin: right;
+        background: pink;
+    }
+    .box div:nth-child(4){
+        transform: rotateX(-90deg);
+        transform-origin: bottom;
+        background: yellow;
+    }
+    .box div:nth-child(6){
+        transform: translateZ(200px);
+        transform-origin: bottom;
+        background: green;
+    }
+    .box div:nth-child(5){
+        background: #333;
+        transform: rotateZ(180deg);
+    }
+</style>
+<body>
+    <div class="dbox">
+        <div class="box">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    var box=document.querySelector(".box");
+//    var cw=document.documentElement.clientWidth;
+//    var ch=document.documentElement.clientHeight;
+    document.onmousedown=function (e) {
+        e.stopPropagation();
+        e.returnValue=false;
+        var oldcx=e.clientX;
+        var oldcy=e.clientY;
+        document.onmousemove=function (e) {
+            var cx=e.clientX;
+            var cy=e.clientY;
+            var x=cx-oldcx;
+            var y=cy-oldcy;
+            var len=Math.sqrt((cx-oldcx)*(cx-oldcx)+(cy-oldcy)*(cy-oldcy));
+            box.style.transform="rotate3d("+(-y)+","+x+",0,"+len+"deg)";
+        }
+        document.onmouseup=function () {
+            document.onmousemove=null;
+            document.onmouseup=null;
+        }
+    }
+    var b=1;
+    function aa() {
+        console.log(b);
+        if(!b){
+            var b=2;
+        }
+        console.log(b);
+    }
+    aa();
+</script>

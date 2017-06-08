@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--{foreach $result2 as $v}-->
+		<h4>{$result2["stitle"]}</h4>
+		<p>{$result2["scon"]}</p>
+		<!--{/foreach}-->
+		<form action="index.php?m=admin&f=art&a=editinfo" method="post">
+			未审核<input type="radio" name="statu" value="0"/><br>
+			审核中<input type="radio" name="statu" value="1"/><br>
+			未通过<input type="radio" name="statu" value="2"/><br>
+			通过<input type="radio" name="statu" value="3"/><br>
+			<input type="hidden" name="sid" value="{$result2['sid']}"/>
+			<input type="submit" value="提交"/>
+		</form>
+		
+	</body>
+</html>

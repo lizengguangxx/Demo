@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="{CSS_PATH}/bootstrap.min.css" />
+	</head>
+	<body>
+		<form action="index.php?m=admin&f=category&a=update" method="post">
+			上级栏目：无限极添加
+			 <select name="pid" class="form-control">
+			 	  <option value="0">一级栏目</option>
+				  <!--<option>2</option>
+				  <option>3</option>
+				  <option>4</option>
+				  <option>5</option>-->
+			 </select><br>
+			 修改分类：<input type="text" name="uname" class="form-control"/>	
+			 <input type="submit" value="提交" />		
+		</form>
+		
+	</body>
+</html>

@@ -1,0 +1,59 @@
+@font-face {
+  font-family: 'iconfont';
+  src: url('iconfont.eot');
+  src: url('iconfont.eot?#iefix') format('embedded-opentype'),
+  url('iconfont.woff') format('woff'),
+  url('iconfont.ttf') format('truetype'),
+  url('iconfont.svg#iconfont') format('svg');
+}
+@font-face {
+  font-family: 'iconfont';
+  src: url('iconfont.eot');
+  src: url('iconfont.eot?#iefix') format('embedded-opentype'),
+  url('iconfont.woff') format('woff'),
+  url('iconfont.ttf') format('truetype'),
+  url('iconfont.svg#iconfont') format('svg');
+}
+.main{
+    margin-top:30px;width:900px;
+    /*background: #f00;*/
+
+}
+/*.main-left{
+    border-right:1px solid #000;
+}*/
+.hyx-photo{
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+}
+.hyx-photo img{
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+}
+.hyx-guan{
+	margin-top: 20px;
+	margin-left: 15px;
+}
+.line{
+	width:100%;
+	height: 1px;
+	background: #eee;
+	margin: 10px 0;
+}
+.hyx-row{
+	padding: 5px;
+	text-align: center;
+	cursor: pointer;
+}
+/*.hyx-row:hover{
+	background: #eee;
+	color: #fff;
+	border-radius: 5px;
+}*/
+.wen{
+	background: #F2DEDE;
+	color: #fff;
+	border-radius: 5px;
+}

@@ -1,0 +1,18 @@
+@num:30;
+.for(@i:0,@x:0,@angle:0) when(@i<=@num){
+  @bili:(100%/@num)*@i;
+  @angle:(720/@num)*pi()/180+@x;
+  @y:sin(@angle);
+  @newx:720/@num*@i;
+  @{bili}{
+    transform:translate(@newx*1px+100px,@y*200*1px+300px);
+
+  }
+  .for(@i:@i+1,@newx,@angle);
+}
+@keyframes move {
+  .for();
+}
+.demo{
+  animation:move 5s linear infinite alternate;
+}

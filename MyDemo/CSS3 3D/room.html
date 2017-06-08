@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    html,body{
+        width: 100%;
+        height:100%;
+        margin:0;
+        padding:0;
+    }
+    .scene{
+        width:100%;
+        height:100%;
+        position: relative;
+        /*perspective: 800px;*/
+    }
+    .scene .room{
+        width: 100%;
+        height:100%;
+        position: relative;
+        transform-style: preserve-3d;
+        transform:scale(0.65,0.65);
+        transition: transform 2s linear;
+
+    }
+    .room div{
+        width:100%;
+        height:100%;
+        position: absolute;
+        left:0;
+        top:0;
+        background: #dfdfdf;
+        box-shadow: 0 0 200px #333 inset;
+    }
+    .room div:nth-child(1){
+        background: red;
+        transform: rotateX(90deg);
+        transform-origin: top;
+    }
+    .room div:nth-child(2){
+        background: url(door.jpg) no-repeat center;
+        background-size: cover;
+        transform: rotateY(-90deg);
+        transform-origin: left;
+    }
+    .room div:nth-child(3){
+        background: url(timg.jpg) no-repeat center;
+        background-size: contain;
+    }
+    .room div:nth-child(4){
+         background: yellowgreen;
+         transform: rotateY(90deg);
+         transform-origin: right;
+    }
+    .room div:nth-child(5){
+          background:orange;
+          transform: rotateX(-90deg);
+          transform-origin: bottom;
+    }
+    .room div:nth-child(6){
+        background: #eee;
+    }
+
+    /*.scene:hover .room{*/
+        /*transform: scale(0.65,0.65) rotateY(350deg);*/
+    /*}*/
+</style>
+<script>
+    window.onload=function () {
+
+        var widths=document.documentElement.clientWidth;
+        var heights=document.documentElement.clientHeight;
+
+        var scene=document.querySelector(".scene");
+        scene.style.width=widths+"px";
+        scene.style.height=heights+"px";
+        scene.style.perspective=widths/2+"px";
+//        document.onclick=function () {
+//            room.style.transition="transform 1s linear";
+//            room.style.transform="scale(0.65,0.65) rotateY(350deg)";
+//        }
+
+        var room=document.querySelector(".room");
+//        room.style.transform="scale(0.65,0.65)";
+        room.style.transformOrigin="center center "+widths/2+"px";
+
+        var top=document.querySelector(".room div:nth-child(1)");
+        top.style.width=widths+"px";
+        top.style.height=widths+"px";
+
+        var qian=document.querySelector(".room div:nth-child(6)");
+        qian.style.transform="translateZ("+widths+"px)";
+
+        var bottom=document.querySelector(".room div:nth-child(5)");
+        bottom.style.width=widths+"px";
+        bottom.style.height=widths+"px";
+        bottom.style.top=-(widths-heights)+"px";
+
+        var cw=document.documentElement.clientWidth;
+        var ch=document.documentElement.clientHeight;
+        document.onmousedown=function (e) {
+            var cx=e.clientX;
+            var cy=e.clientY;
+            document.onmousemove=function (e) {
+                var x=cx-cw/2;
+                room.style.transform="rotateY("+-x+"deg)";
+                e.preventDefault();
+            }
+            document.onmouseup=function () {
+                document.onmousemove=null;
+                document.onmouseup=null;
+            }
+        }
+    }
+</script>
+<body>
+<div class="scene">
+    <div class="room">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+</body>
+</html>

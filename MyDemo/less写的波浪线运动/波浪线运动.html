@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>波浪线运动</title>
+    <!-- <link rel="stylesheet" href="css/less.css"> -->
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+            border-radius: 50%;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var x=0,y=0;
+            var cw=document.documentElement.clientWidth;//获取浏览器宽度
+            var body=document.querySelector("body");
+            var box=document.querySelector(".box");
+            var t=setInterval(function () {
+                x++;
+                //停止时间函数
+                if(x>1200){
+                    clearInterval(t);
+                }else {
+                    hudu=x*Math.PI/180;
+                    //记录弧度的大小
+                    y=Math.sin(hudu);
+                    //生成div
+                    var div=document.createElement("div");
+                    div.style.cssText="transform:translate("+(x)+"px,"+(y*100)+"px);width:2px;height:2px;background:red;position:absolute;top:200px;left:0";
+                    body.appendChild(div);
+                    //完成波浪线运动
+                    box.style.cssText="transform:translate("+(x)+"px,"+(y*100+100)+"px)";
+                }
+
+            },10)
+        }
+    </script>
+</head>
+<body>
+<div class="box demo">
+
+</div>
+</body>
+</html>

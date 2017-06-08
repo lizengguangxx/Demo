@@ -1,0 +1,98 @@
+@keyframes move {
+  0% {
+    transform: translate(100px, 381.34732862px);
+  }
+  3.33333333% {
+    transform: translate(124px, 381.34732862px);
+  }
+  6.66666667% {
+    transform: translate(148px, 169.04842927px);
+  }
+  10% {
+    transform: translate(172px, 107.55885682px);
+  }
+  13.33333333% {
+    transform: translate(196px, 267.69258456px);
+  }
+  16.66666667% {
+    transform: translate(220px, 465.03288836px);
+  }
+  20% {
+    transform: translate(244px, 472.31438896px);
+  }
+  23.33333333% {
+    transform: translate(268px, 281.15140456px);
+  }
+  26.66666667% {
+    transform: translate(292px, 111.69525403px);
+  }
+  30% {
+    transform: translate(316px, 159.098755px);
+  }
+  33.33333333% {
+    transform: translate(340px, 368.77004549px);
+  }
+  36.66666667% {
+    transform: translate(364px, 499.24286426px);
+  }
+  40% {
+    transform: translate(388px, 400.25923527px);
+  }
+  43.33333333% {
+    transform: translate(412px, 185.81286153px);
+  }
+  46.66666667% {
+    transform: translate(436px, 102.86919063px);
+  }
+  50% {
+    transform: translate(460px, 246.9496364px);
+  }
+  53.33333333% {
+    transform: translate(484px, 452.12510823px);
+  }
+  56.66666667% {
+    transform: translate(508px, 482.1069184px);
+  }
+  60% {
+    transform: translate(532px, 302.36675552px);
+  }
+  63.33333333% {
+    transform: translate(556px, 119.90093761px);
+  }
+  66.66666667% {
+    transform: translate(580px, 144.84476147px);
+  }
+  70% {
+    transform: translate(604px, 348.47187226px);
+  }
+  73.33333333% {
+    transform: translate(628px, 496.27673985px);
+  }
+  76.66666667% {
+    transform: translate(652px, 418.04107308px);
+  }
+  80% {
+    transform: translate(676px, 203.86435056px);
+  }
+  83.33333333% {
+    transform: translate(700px, 100.40147822px);
+  }
+  86.66666667% {
+    transform: translate(724px, 226.80464377px);
+  }
+  90% {
+    transform: translate(748px, 437.50265468px);
+  }
+  93.33333333% {
+    transform: translate(772px, 489.84683537px);
+  }
+  96.66666667% {
+    transform: translate(796px, 323.55542966px);
+  }
+  100% {
+    transform: translate(820px, 130.13660217px);
+  }
+}
+.demo {
+  animation: move 5s linear infinite alternate;
+}

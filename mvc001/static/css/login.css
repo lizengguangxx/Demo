@@ -1,0 +1,25 @@
+.box{
+	width: 300px;
+	height: 300px;
+	background: #ccc;
+	position: fixed;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	margin:auto;
+	text-align: center;
+}
+a{
+	font-size: 16px;
+	color: #f00;
+}
+.masseige{
+	font-size:14px;
+	color: #f00;
+}
+.imgcode{
+	width: 100px;
+	height: 30px;
+	margin-left: 40px;
+}

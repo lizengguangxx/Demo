@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    .bigbox{
+        width:800px;
+        height: 400px;
+        margin: auto;
+        position: fixed;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        border: 1px solid red;
+    }
+</style>
+<script>
+    window.onload=function () {
+        var num=20;
+        var bigbox=document.querySelector(".bigbox");
+
+        var widths=800;
+        var heights=400;
+        var arr=[];
+        for(var i=0;i<num;i++){
+//  创建背景
+            var scene=document.createElement("div");
+            scene.style.cssText="width:"+widths+"px;height:"+heights/num+"px;perspective:9999999px;";
+//  创建盒子
+            var box=document.createElement("div");
+            box.style.cssText="width:100%;height:100%;transition:transform 1s linear "+0.05*i+"s;position:relative;transform-style: preserve-3d;transform-origin:center center "+widths/2+"px;";
+            for(var j=0;j<6;j++){
+////  创建6个面
+                var mian=document.createElement("div");
+                mian.style.cssText="position:absolute;top:0;left:0";
+
+                if(j==0){
+                    //  上面
+                    mian.style.transform="rotateX(90deg)";
+                    mian.style.width=widths+"px";
+                    mian.style.height=widths+"px";
+                    mian.style.transformOrigin="top";
+                    mian.style.background="#000";
+                }else if(j==1){
+                    //  左面
+                    mian.style.transform="rotateY(-90deg)";
+                    mian.style.width="100%";
+                    mian.style.height="100%";
+                    mian.style.transformOrigin="left";
+                    mian.style.background="url(img/1.jpg) no-repeat";
+                    mian.style.backgroundPositionX=0;
+                    mian.style.backgroundPositionY=-(heights/num)*i+"px";
+
+                }else if(j==2){
+                    //  后面
+                    mian.style.width="100%";
+                    mian.style.height="100%";
+                    mian.style.background="url(img/2.jpg) no-repeat";
+                    mian.style.backgroundPositionX=0;
+                    mian.style.backgroundPositionY=-(heights/num)*i+"px";
+                }else if(j==3){
+                    //  右面
+                    mian.style.transform="rotateY(90deg)";
+                    mian.style.width="100%";
+                    mian.style.height="100%";
+                    mian.style.transformOrigin="right";
+                    mian.style.background="url(img/3.jpg) no-repeat";
+                    mian.style.backgroundPositionX=0;
+                    mian.style.backgroundPositionY=-(heights/num)*i+"px";
+                }else if(j==4){
+                    //  下面
+                    mian.style.transform="rotateX(-90deg)";
+                    mian.style.width=widths+"px";
+                    mian.style.height=widths+"px";
+                    mian.style.transformOrigin="bottom";
+                    mian.style.bottom=0;
+                    mian.style.background="#000";
+                }else if(j==5){
+                    //  前面
+                    mian.style.transform="translateZ("+widths+"px)";
+                    mian.style.width="100%";
+                    mian.style.height="100%";
+                    mian.style.background="url(img/4.jpg) no-repeat";
+                    mian.style.backgroundPositionX=0;
+                    mian.style.backgroundPositionY=-(heights/num)*i+"px";
+                }
+
+                box.appendChild(mian);
+
+            }
+            scene.appendChild(box);
+            bigbox.appendChild(scene);
+            arr.push(box);
+        }
+
+
+        var init=0;
+        var speed=90;
+        setInterval(function () {
+            init+=speed;
+            for(var i=0;i<arr.length;i++){
+                arr[i].style.transform="rotateY("+init+"deg)";
+            }
+        },2000);
+
+    }
+</script>
+<body>
+<div class="bigbox"></div>
+</body>
+</html>

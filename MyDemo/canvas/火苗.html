@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		canvas{
+			background: #ccc;
+			margin: auto;
+			position: fixed;
+			top: 0;bottom: 0;left: 0;right: 0;
+		}
+	</style>
+	<body>
+		<canvas id="" width="1200" height="600"></canvas>
+	</body>
+	<script>
+		var canvas=document.querySelector("canvas");
+		var cobj=canvas.getContext("2d");
+		function huo(){
+			this.r=3+5*Math.random();
+			this.x=canvas.width/2;
+			this.y=canvas.height/2;
+			this.speedy=5;
+			this.speedr=0.3;
+			this.speedl=0.3;
+			this.suiji=20*Math.random()-10;
+		}
+		huo.prototype={
+			draw:function(){
+				cobj.save();
+				cobj.translate(this.x,this.y);
+				cobj.beginPath();
+				cobj.fillStyle="rgb(236,50,20)";
+				cobj.globalCompositeOperation="lighter";
+				cobj.arc(this.suiji,0,this.r,0,2*Math.PI);
+				cobj.fillStyle=this.color;
+				cobj.fill();
+				cobj.restore();
+			},
+			update:function(){
+				this.speedx=10*Math.random()-5;
+				this.x+=this.speedx;
+				this.y-=this.speedy;
+				this.r-=this.speedr;
+			}
+		}
+		var arr=[];
+		var ox=600,oy=300;
+		canvas.onmousemove=function(e){
+			ox=e.offsetX;
+			oy=e.offsetY;
+		}
+		var t=setInterval(function(){
+			cobj.clearRect(0,0,1200,600);
+			var huos=new huo();
+			huos.x=ox;
+			huos.y=oy;
+			arr.push(huos);
+			for(var i=0;i<arr.length;i++){
+				if(arr[i].r<0){
+					arr[i]=new huo();
+					arr[i].x=ox;
+					arr[i].y=oy;
+				}
+				arr[i].draw();
+				arr[i].update();
+			}
+			if(arr.length>100){
+				arr.shift();
+			}
+		},30)
+	</script>
+</html>

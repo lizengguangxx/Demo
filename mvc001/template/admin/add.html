@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="{CSS_PATH}/bootstrap.min.css" />
+	</head>
+	<body>
+		<form action="index.php?m=admin&f=category&a=insert" method="post">
+			上级栏目：无限极添加
+			 <select name="pid" class="form-control">
+			 	  <option value="0">一级栏目</option>
+			 	  {$tree}
+			 </select><br>
+			 添加分类：<input type="text" name="cname" class="form-control"/>	
+			 <input type="submit" value="提交" />		
+		</form>
+		
+	</body>
+</html>

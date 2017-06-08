@@ -1,0 +1,343 @@
+.box{
+    width:950px;
+    height:600px;
+    margin: 50px auto;
+    position: relative;
+}
+
+.header{
+    width: 315px;
+    height:315px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    position: relative;
+    background: linear-gradient(30deg,rgba(0,0,0,.6) 0%,#00a0e9 10%,#fff 99%);
+}
+.face{
+    width:268px;
+    height:200px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    background: #fff;
+    position: absolute;
+    left: 20px;
+    right:0;
+    bottom: 20px;
+    /*bottom:50%;*/
+    /*overflow: hidden;*/
+}
+.eye{
+    width: 148px;
+    height: 87px;
+    margin: 0 auto;
+    /*border: 1px solid #000;*/
+    position: absolute;
+    left: 0;
+    right:0;
+    top: -40px;
+    z-index: 20;
+}
+.eye_left,.eye_right{
+    width: 70px;
+    height:85px;
+    float: left;
+    background: #fff;
+    border:2px solid #000;
+    border-radius: 40%;
+    position: relative;
+}
+.eye_left div{
+    width: 15px;
+    height: 15px;
+    background: #000;
+    border-radius: 50%;
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    z-index: 1;
+}
+.eye_right div{
+    width: 15px;
+    height: 15px;
+    background: #000;
+    border-radius: 50%;
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    z-index: 1;
+}
+.bizi{
+    width: 32px;
+    height:32px;
+    border:2px solid #000;
+    /*background: radial-gradient(at 5px 25px,#c93e00 0%,#dfdfdf 99%);*/
+    border-radius: 50%;
+    background: #c93e00;
+    position: absolute;
+    top: 35px;
+    left: 116px;
+    z-index: 20;
+}
+.bizi_line{
+    width: 3px;
+    height: 90px;
+    background: #000;
+    position: absolute;
+    top: 32px;
+    left: 15px;
+}
+.huzibox{
+    width: 240px;
+    height:60px;
+    /*border: 1px solid #000000;*/
+    margin: 55px auto 0;
+    background: #fff;
+    position: relative;
+    z-index: 5;
+}
+.huzileft{
+    width: 80px;
+    height:60px;
+    margin: -14px 0 0 10px;
+    /*border:1px solid #000;*/
+    float: left;
+}
+.huziright{
+    width: 80px;
+    height:60px;
+    margin: -14px -8px 0 0;
+    /*border:1px solid #000;*/
+    float: right;
+}
+.huzi div{
+    width: 60px;
+    height: 2px;
+    background: #000;
+    margin: 20px 0;
+}
+.huzileft .huzi div:nth-child(1){
+
+    transform: rotate(20deg);
+}
+.huzileft .huzi div:nth-child(3){
+    transform: rotate(-20deg);
+}
+.huziright .huzi div:nth-child(1){
+    transform: rotate(-20deg);
+}
+.huziright .huzi div:nth-child(3){
+    transform: rotate(20deg);
+}
+.mouth{
+    width:240px;
+    height:500px;
+    border-bottom: 3px solid #000;
+    border-radius: 120px;
+    position: absolute;
+    top: -341px;
+    left:13px;
+}
+.bozi{
+    width:220px;
+    height:22px;
+    border: 2px solid #000;
+    background: linear-gradient(red 0%,#c93e00 20%);
+    border-radius: 10px;
+    position: absolute;
+    bottom: 15px;
+    left: 44px;
+    z-index: 5;
+}
+.lingdang{
+    width: 40px;
+    height:40px;
+    border:2px solid #000;
+    background: #f9f12a;
+    border-radius: 50%;
+    margin: 10px auto 0;
+    overflow: hidden;
+}
+.lingdangxian1{
+    width: 40px;
+    height:2px;
+    background: #000;
+    margin-top: 9px;
+}
+.lingdangxian2{
+    width: 40px;
+    height:2px;
+    background: #000;
+    margin-top: 3px;
+}
+.xiaodian{
+    width: 12px;
+    height: 10px;
+    border-radius: 50%;
+    background: #000;
+    margin: 4px auto 0;
+}
+.xiaoxian{
+    width: 3px;
+    height:15px;
+    background: #000;
+    margin: 0 auto;
+}
+.shengti{
+    width:220px;
+    height:170px;
+    background: #00a0e9;
+    margin-left:46px;
+    margin-top: -20px;
+    z-index: 4;
+    position: relative;
+    border: 2px solid #000;
+    border-top: 0;
+    border-bottom: 0;
+    overflow: hidden;
+}
+.duzi{
+    width:170px;
+    height:170px;
+    border:2px solid #000;
+    border-radius: 50%;
+    position: absolute;
+    top: -35px;
+    left: 22px;
+    background: #fff;
+}
+.koudai{
+    width:130px;
+    height:130px;
+    border:2px solid #000;
+    border-top: none;
+    background: #fff;
+    border-radius:50%;
+    position: absolute;
+    left: 18px;
+    right: 0;
+    top: 20px;
+}
+.koudai1{
+    width:134px;
+    height:65px;
+    border-bottom: 2px solid #000;
+    background: #fff;
+    position: absolute;
+    left: 18px;
+    right: 0;
+    top: 20px
+}
+
+.handleft{
+    width:100px;
+    height:100px;
+    /*border:1px solid #000;*/
+    position: absolute;
+    top:300px;
+    left:-40px;
+}
+.handright{
+    width:100px;
+    height:100px;
+    /*border:1px solid #000;*/
+    position: absolute;
+    top:300px;
+    left:251px;
+}
+.gebo1{
+    width: 80px;
+    height:50px;
+    background: #00a0e9;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+    transform: rotate(-45deg);
+    position: absolute;
+    top:14px;
+    left:35px;
+}
+.hand1{
+    width:60px;
+    height:60px;
+    background: #fff;
+    border:2px solid #000;
+    border-radius: 50%;
+    position: absolute;
+    left: 10px;
+    bottom: 0;
+}
+.zhao1{
+    width: 2px;
+    height: 50px;
+    position: absolute;
+    left: 86px;
+    top:-1px;
+    background: #00a0e9;
+    z-index: 99;
+}
+.gebo2{
+    width: 80px;
+    height:50px;
+    background: #00a0e9;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+    transform: rotate(45deg);
+    position: absolute;
+    top:14px;
+    left:-12px;
+}
+.hand2{
+    width:60px;
+    height:60px;
+    background: #fff;
+    border:2px solid #000;
+    border-radius: 50%;
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+}
+.zhao2{
+    width: 2px;
+    height: 50px;
+    position: absolute;
+    left: 17px;
+    top:-2px;
+    background: #00a0e9;
+    z-index: 99;
+}
+
+.foot{
+    width: 275px;
+    height:40px;
+    /*border:1px solid #000;*/
+    margin-left: 22px;
+    position: relative;
+}
+.footleft{
+    width: 130px;
+    height:30px;
+    border:2px solid #000;
+    float: left;
+    border-radius: 25px 18px 18px 12px;
+}
+.footright{
+    width: 130px;
+    height:30px;
+    border:2px solid #000;
+    float: right;
+    border-radius: 18px 25px 12px 18px ;
+}
+.footbot{
+    width:20px;
+    height: 10px;
+    border-top: 2px solid #000;
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+    background: #fff;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    position: absolute;
+    left: 126px;
+    top: -12px;
+    z-index: 100;
+}
+

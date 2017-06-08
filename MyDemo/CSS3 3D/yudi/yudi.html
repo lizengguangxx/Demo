@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    html,body{
+        width: 100%;
+        height:100%;
+        overflow: hidden;
+        background: #1a1a1a;
+        margin:0;
+        padding:0;
+    }
+</style>
+<script>
+    window.onload=function () {
+        var arr=[];
+        var body=document.getElementsByTagName("body")[0];
+        //模拟随风摆动的动作
+        // var de=Math.sin(Math.PI/180);
+        setInterval(function(){
+                var a=Math.random()*60-30;
+                body.style.transition="transform 2s linear";
+                body.style.transform="rotate("+a+"deg)";
+        },3000)
+
+       var speed=5;
+       var t=setInterval(function () {
+            body.style.transition="transform 2s Linear";
+            speed+=5;
+            body.style.transform="rotate("+Math.sin(Math.PI/180*speed)*20+"deg)";
+       },50)
+
+        //获取屏幕宽度和高度
+        var clientW=document.documentElement.clientWidth;
+        var clientH=document.documentElement.clientHeight;
+
+        //创建雨滴
+        for(var i=0; i<200; i++){
+            var div=document.createElement("div");
+            div.style.cssText="width:3px;height:3px;background:#fff;borderRadius:50%;position:absolute;left:"+(50+(clientW-100)*Math.random())+"px;top:20px";
+            div.style.transition="transform 2s linear "+Math.random()*4+"s";
+            body.appendChild(div);
+            arr.push(div);
+        }
+
+        //让每个雨滴动起来
+        setTimeout(function () {
+            for(var j=0; j<arr.length; j++){
+                arr[j].style.transform="translate(0,"+clientH+"px)";
+                //添加一个监听事件，第一次动作完成以后实现循环
+                arr[j].addEventListener("webkitTransitionEnd",function () {
+                    //停止当前元素的运动
+                    this.style.transition="none";
+                    this.style.transform="translate(0,0)";
+                    var that=this;
+                    //再开启一个时间进程。
+                    setTimeout(function(){
+                        that.style.transition="transform 2s linear "+Math.random()*4+"s";
+                        that.style.transform="translate(0,"+(clientH+100)+"px)";
+                    })
+                })
+            }
+        },50)
+    }
+</script>
+<body>
+
+</body>
+</html>

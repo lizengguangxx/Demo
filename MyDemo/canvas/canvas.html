@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>canvas</title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		.canvasbox{
+			margin:auto;
+			width: 1200px;
+			height: 600px;
+			position: fixed;
+			left: 0;right: 0;
+			cursor: pointer;
+			z-index: 4;
+		}
+		.canvasbox>canvas{
+			position: absolute;
+			left: 0;
+			top: 0;
+			background: #f6f6f6;
+		}
+		.canvasbox>textarea{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 300px;
+			height: 100px;
+			display: none;
+			padding: 5px;
+		}
+		.zhezhao{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			left: 0;top: 0;
+			z-index: 10;
+		}
+		.xiangpibtn{
+			position: absolute;
+			left: 0;
+			top: 0;
+			background: #fff;
+			border: 1px solid #333;
+			box-sizing: border-box;
+			width: 100px;
+			height: 100px;
+			display: none;
+		}
+		.btnbox{
+			width: 1200px;
+			height: 50px;
+			margin: auto;
+			background: #ccc;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+		}
+		.btnbox>li{
+			float: left;
+			position: relative;
+			z-index: 10;
+		}
+		.btnbox>li>a{
+			display: block;
+			width: 120px;
+			height: 50px;
+			border-radius: 10px;
+			text-align: center;
+			line-height: 50px;
+			color: #333;
+			transition: all .3s;
+			text-decoration: none;
+		}
+		.btnbox>li:hover>a{
+			color: #fff;
+			background: rgba(0,0,0,.3);
+		}
+		.btnbox>li:hover .son a{
+			height: 40px;
+		}
+		.son{
+			position: absolute;
+			left: 0;
+			top: 100%;
+			width: 100%;
+			border-bottom-left-radius: 10px;
+			border-bottom-right-radius: 10px;
+			background: #ccc;
+			opacity: 0.9;
+		}
+		.son a{
+			display: block;
+			width: 100%;
+			color: #333;
+			height: 0;
+			text-decoration: none;
+			text-align: center;
+			line-height: 40px;
+			border-radius:5px;
+			overflow: hidden;
+			transition: all .3s;
+		}
+		.son a:hover{
+			background: rgba(0,0,0,.3);
+			color: #fff;
+		}
+		.gongneng{
+			position: fixed;
+			z-index: 5;
+			left: -50px;top: 80px;
+		}
+		.gongneng>li{
+			width: 100px;
+			height: 40px;
+			background: #ccc;
+			margin: 8px 0;
+			border-radius: 10px;
+			cursor: pointer;
+			line-height: 40px;
+			text-align: right;
+			padding-right: 20px;
+			transition: all .5s;
+		}
+		.gongneng>li:hover{
+			margin-left: 30px;
+		}
+	</style>
+	<body>
+		<ul class="btnbox">
+			<li>
+				<a href="javascript:;">文件</a>
+				<ul class="son">
+					<li><a class="xinjian" href="javascript:;">新建</a></li>
+					<li><a class="baocun" href="javascript:;">保存</a></li>
+					<li><a class="chongzhi" href="javascript:;">重置</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="javascript:;">操作</a>
+				<ul class="son">
+					<li><a class="houtui" href="javascript:;">后退</a></li>
+					<li><a class="qianjin" href="javascript:;">前进</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="javascript:;">图像</a>
+				<ul class="son">
+					<li><a class="shangchuan" href="javascript:;"><input style="width: 70px;" type="file" class="file"></a></li>
+					<li><a class="fanxiang" href="javascript:;">反向</a></li>
+					<li><a class="mohu" href="javascript:;">高斯模糊</a></li>
+					<li><a class"masaike" href="javascript:;">马赛克</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="javascript:;">效果</a>
+				<ul class="son">
+					<li><a class="tianchong" href="javascript:;">填充</a></li>
+					<li><a class="xiantiao" href="javascript:;">线条</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="javascript:;">大小（粗细）</a>
+				<ul class="son">
+					<li><a class="da" href="javascript:;">大</a></li>
+					<li><a class="zhong" href="javascript:;">中</a></li>
+					<li><a class="xiao" href="javascript:;">小</a></li>
+					<li><a class="size" href="javascript:;"><input type="number" style="width: 50px;" name="" id="size" value="1" /></a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="javascript:;">颜色</a>
+				<ul class="son">
+					<li><a class="red" href="javascript:;">红</a></li>
+					<li><a class="yellow" href="javascript:;">黄</a></li>
+					<li><a class="blue" href="javascript:;">蓝</a></li>
+					<li><a class="green" href="javascript:;">绿</a></li>
+					<li><a class="color" href="javascript:;"><input type="color" name="" id="color" value="#333333" /></a></li>
+				</ul>
+			</li>
+		</ul>
+		<ul class="gongneng">
+			<li class="gangbi">钢笔</li>
+			<li class="zhixian">直线</li>
+			<li class="juxing">矩形</li>
+			<li class="yuan">圆</li>
+			<li class="duobian">多边形</li>
+			<li class="duojiao">多角形</li>
+			<li class="wenzi">文字</li>
+			<li class="xiangpi">橡皮</li>
+		</ul>
+		<div class="canvasbox">
+			<canvas id="" width="1200" height="600"></canvas>
+			<textarea name="" rows="" cols=""></textarea>
+			<div class="zhezhao"></div>
+			<div class="xiangpibtn"></div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	window.onload=function(){
+		//封装
+		function drags(canvas,cobj){
+			this.canvas=canvas;
+			this.cobj=cobj;
+			this.type="jiao";
+			this.color="#333";
+			this.historys=[];
+			this.canvasW=1200;
+			this.canvasH=600;
+			this.linetype="stroke";
+			this.linewidth=1;
+			this.bianNum=5;
+			this.num=this.historys.length-1;
+		}
+		drags.prototype={
+			//画笔属性的改变
+			init:function(){
+				this.cobj.lineWidth=this.linewidth;
+				this.cobj.strokeStyle=this.color;
+				this.cobj.fillStyle=this.color;
+				this.cobj.recStyle=this.color;
+				this.cobj.lineStyle=this.color;
+			},
+			pen:function(){
+				//钢笔工具
+				var that=this;
+				this.canvas.onmousedown=function(e){
+					that.init();
+					var oldx=e.offsetX;
+					var oldy=e.offsetY;
+					that.cobj.beginPath();
+					that.cobj.moveTo(oldx,oldy);
+					that.canvas.onmousemove=function(e){
+						var newx=e.offsetX;
+						var newy=e.offsetY;
+						that.cobj.lineTo(newx,newy);
+						that.cobj.stroke();
+					}
+					that.canvas.onmouseup=function(){
+						if(that.historys.length>20){
+							that.historys.shift();
+						}
+						that.historys.push(that.cobj.getImageData(0,0,that.canvasW,that.canvasH));
+						that.num=that.historys.length-1;
+						that.canvas.onmousemove=null;
+						that.canvas.onmouseup=null;
+					}
+				}
+			},
+			drag:function(){
+				//其他工具
+				var that=this;
+				this.canvas.onmousedown=function(e){
+					that.init();
+					var oldx=e.offsetX;
+					var oldy=e.offsetY;
+					that.canvas.onmousemove=function(e){
+						that.cobj.clearRect(0,0,that.canvasW,that.canvasH);
+						if(that.historys.length>0){
+							that.cobj.putImageData(that.historys[that.num],0,0);
+						}
+						var newx=e.offsetX;
+						var newy=e.offsetY;
+						that[that.type](oldx,oldy,newx,newy);
+					}
+					that.canvas.onmouseup=function(){
+						if(that.historys.length>20){
+							that.historys.shift();
+						}
+						that.historys.push(that.cobj.getImageData(0,0,that.canvasW,that.canvasH));
+						that.num=that.historys.length-1;
+						that.canvas.onmousemove=null;
+						that.canvas.onmouseup=null;
+					}
+				}
+			},
+			line:function(x,y,x1,y1){
+				//直线工具
+				this.cobj.beginPath();
+	            this.cobj.moveTo(x,y);
+	            this.cobj.lineTo(x1,y1);
+	            this.cobj.stroke();
+			},
+			rect:function(x,y,x1,y1){
+				//矩形工具
+				this.cobj.beginPath();
+		        this.cobj.rect(x,y,x1-x,y1-y);
+		        this.cobj[this.linetype]();
+			},
+			arc:function(x,y,x1,y1){
+				//圆
+		        this.cobj.beginPath();
+		        var r=Math.sqrt((x1-x)*(x1-x)+(y1-y)*(y1-y));
+		        this.cobj.arc(x,y,r,0,2*Math.PI);
+		        this.cobj[this.linetype]();
+		    },
+		    bian:function(x,y,x1,y1){
+		    	//多边形
+		    	var du=360/this.bianNum*(Math.PI/180);
+		    	var r=Math.sqrt((x1-x)*(x1-x)+(y1-y)*(y1-y));
+		    	this.cobj.beginPath();
+		    	for(var i=0;i<=this.bianNum;i++){
+		    		var dx=x+Math.cos(du*i)*r;
+		    		var dy=y+Math.sin(du*i)*r;
+		    		this.cobj.lineTo(dx,dy);
+		    	}
+		    	this.cobj.closePath();
+		    	this.cobj[this.linetype]();
+		    },
+		    jiao:function(x,y,x1,y1){
+		    	//多角形
+		    	var du=360/this.bianNum*(Math.PI/180);
+		    	var xdu=360/(this.bianNum*2)*(Math.PI/180);
+		    	var r=Math.sqrt((x1-x)*(x1-x)+(y1-y)*(y1-y));
+		    	this.cobj.beginPath();
+		    	for(var i=0;i<=this.bianNum;i++){
+		    		var dx=x+Math.cos(du*i)*r;
+		    		var dy=y+Math.sin(du*i)*r;
+		    		var tx=x+Math.cos(du*i+xdu)*(r/3);
+		    		var ty=y+Math.sin(du*i+xdu)*(r/3);
+		    		this.cobj.lineTo(dx,dy);
+		    		this.cobj.lineTo(tx,ty);
+		    	}
+		    	this.cobj.closePath();
+		    	this.cobj[this.linetype]();
+		    },
+			off:function(){
+				//后退
+				this.num--;
+				if(this.num>-1){
+					this.cobj.putImageData(this.historys[this.num],0,0);
+				}else{
+					alert("不能撤退啦！");
+					this.num++;
+				}
+			},
+			on:function(){
+				//前进
+				this.num++;
+				if(this.num<this.historys.length){
+					this.cobj.putImageData(this.historys[this.num],0,0);
+				}else{
+					alert("不能前进啦！");
+					this.num--;
+				}
+			},
+			ca:function(){
+				var that=this;
+				var xiangpibtn=document.querySelector(".xiangpibtn");
+			    this.canvas.onmouseover=function(){
+			    	xiangpibtn.style.display="block";
+			    	xiangpibtn.style.width=that.linewidth*3+'px';
+			    	xiangpibtn.style.height=that.linewidth*3+'px';
+			    }
+		    	this.canvas.onmousemove=function(e){
+		    		var ox=e.offsetX;
+		    		var oy=e.offsetY;
+		    		xiangpibtn.style.left=(ox-that.linewidth*3/2)+'px';
+		    		xiangpibtn.style.top=(oy-that.linewidth*3/2)+'px';
+		    		that.canvas.onmousedown=function(){
+		    			that.canvas.onmousemove=function(e){
+		    				ox=e.offsetX;
+		    				oy=e.offsetY;
+		    				xiangpibtn.style.left=(ox-that.linewidth*3/2)+'px';
+		    				xiangpibtn.style.top=(oy-that.linewidth*3/2)+'px';
+		    				that.cobj.clearRect(ox-that.linewidth*3/2,(oy-that.linewidth*3/2),that.linewidth*3,that.linewidth*3);
+		    			}
+		    			that.canvas.onmouseup=function(){
+		    				if(that.historys.length>20){
+								that.historys.shift();
+							}
+							that.historys.push(that.cobj.getImageData(0,0,that.canvasW,that.canvasH));
+							that.num=that.historys.length-1;
+		    				that.canvas.onmousemove=null;
+		    				that.canvas.onmouseup=null;
+		    				that.ca();
+	    				}
+		    		}
+		    	}
+			    this.canvas.onmouseout=function(){
+			    	xiangpibtn.style.display="none";
+			    }
+			}
+		}
+		//申明
+		var canvas=document.querySelector("canvas");
+		var zhezhao=document.querySelector(".zhezhao");
+	    var cobj=canvas.getContext("2d");
+		//调用函数
+		var obj=new drags(zhezhao,cobj);
+		//功能按钮
+		document.querySelector(".gangbi").onclick=function(){
+		    //钢笔
+		    anniu(this);
+			obj.pen();
+		}
+		document.querySelector(".zhixian").onclick=function(){
+		    //直线
+		    anniu(this);
+			obj.type="line";
+			obj.drag();
+		}
+		document.querySelector(".juxing").onclick=function(){
+		    //矩形
+		    anniu(this);
+			obj.type="rect";
+			obj.drag();
+		}
+		document.querySelector(".yuan").onclick=function(){
+		    //圆
+		    anniu(this);
+			obj.type="arc";
+			obj.drag();
+		}
+		document.querySelector(".duobian").onclick=function(){
+		    //多边形
+		    anniu(this);
+		    var num=parseInt(prompt("请输入几边形",""));
+			obj.type="bian";
+			obj.bianNum=num;
+			obj.drag();
+		}
+		document.querySelector(".duojiao").onclick=function(){
+		    //多角形
+		    anniu(this);
+		    var num=parseInt(prompt("请输入几边形",""));
+			obj.type="jiao";
+			obj.bianNum=num;
+			obj.drag();
+		}
+		document.querySelector(".wenzi").onclick=function(){
+		    //文字
+		    anniu(this);
+		    var ox,oy;
+		    var flag=true;
+		    var textar=document.querySelector(".canvasbox textarea");
+		    zhezhao.onmousedown=function(e){
+		    	if(!flag){
+		    		return;
+		    	}
+		    	flag=false;
+		    	ox=e.offsetX;
+		    	oy=e.offsetY;
+		    	textar.style.display="block";
+		    	textar.style.left=ox+"px";
+		    	textar.style.top=oy+"px";
+		    	setTimeout(function(){
+		    		textar.focus();
+		    	},0)
+		    }
+		    textar.onblur=function(){
+		    	var vtext=textar.value;
+		    	var vwidth=parseInt(getComputedStyle(textar).width);
+		    	wrap(vtext,ox,oy,vwidth);
+		    	textar.style.display="none";
+		    	textar.value="";
+		    	flag=true;
+		    }
+		}
+		var gnbox=document.querySelector(".gongneng");
+		gnbox.onclick=function(e){
+		    //橡皮
+			var pai=e.target||e.srcElement;
+			if(pai.className=="xiangpi"){
+			    anniu(document.querySelector(".xiangpi"));
+				obj.ca();
+			}else{
+				zhezhao.onmouseover=null;
+				zhezhao.onmouseout=null;
+				zhezhao.onmousemove=null;
+			}
+		}
+		//循环处理按钮
+		var gn=document.querySelectorAll(".gongneng li");
+		function anniu(obj){
+			for(var i=0;i<gn.length;i++){
+				gn[i].style.background="#ccc";
+			}
+			obj.style.background="skyblue";
+		}
+		//生成文字函数
+		function wrap(str,x,y,w){
+			cobj.textBaseline="top";
+			var num=0;
+			var oldx=x;
+			for(var i=0;i<str.length;i++){
+				cobj.fillStyle=color.value;
+				cobj.fillText(str[i],x,y);
+				var wwidth=cobj.measureText(str[i]).width;
+				num+=wwidth;
+				x+=wwidth;
+				if(num>=w){
+					num=0;
+					x=oldx;
+					y+=20;
+				}
+			}
+		}
+		//新建
+		document.querySelector(".xinjian").onclick=function(){
+			if(obj.historys.length>0){
+				var yes=confirm("是否保存当前内容？")
+				if(yes){
+					location.href=canvas.toDataURL().replace("data:image/png","data:stream/catet");
+				}
+				cobj.clearRect(0,0,obj.canvasW,obj.canvasH);
+				obj.historys=[];
+			}
+		}
+		//保存
+		document.querySelector(".baocun").onclick=function(){
+			//跳转到图片地址  并且将文件类型转化成下载类型
+			location.href=canvas.toDataURL().replace("data:image/png","data:stream/catet");
+		}
+		//重置
+		document.querySelector(".chongzhi").onclick=function(){
+			location.href="";
+		}
+		//后退
+		document.querySelector(".houtui").onclick=function(){
+			obj.off();
+		}
+		//前进
+		document.querySelector(".qianjin").onclick=function(){
+			obj.on();
+		}
+		//上传
+		document.querySelector(".file").onchange=function(){
+			var imgdata=this.files[0];
+			var fileobj=new FileReader();
+			fileobj.readAsDataURL(imgdata);
+			fileobj.onload=function(e){
+				var img=document.createElement("IMG");
+				img.src=e.target.result;
+				cobj.drawImage(img,0,0,1200,600,0,0,1200,600);
+				obj.historys.push(obj.cobj.getImageData(0,0,obj.canvasW,obj.canvasH));
+				obj.num=obj.historys.length-1;
+			}
+		}
+		//反向
+		document.querySelector(".fanxiang").onclick=function(){
+			var data=cobj.getImageData(0,0,canvas.width,canvas.height);
+			cobj.putImageData(fx(data),0,0);
+			obj.historys.push(obj.cobj.getImageData(0,0,obj.canvasW,obj.canvasH));
+			obj.num=obj.historys.length-1;
+		}
+		//反向的方法
+		function fx(data){
+			for(var i=0;i<data.width*data.height;i++){
+				data.data[i*4+0]=255-data.data[i*4+0];
+                data.data[i*4+1]=255-data.data[i*4+1];
+                data.data[i*4+2]=255-data.data[i*4+2];
+                data.data[i*4+3]=255;
+			}
+			return data;
+		}
+		//高斯模糊
+		document.querySelector(".mohu").onclick=function(){
+			var data=cobj.getImageData(0,0,canvas.width,canvas.height);
+			var r=10;
+	    	var quanzhong=getQuanzhong(r);
+	    	var width=data.width;
+	    	var height=data.height;
+        	for(var i=0;i<height;i++){//循环y轴
+	            for(var j=0;j<width;j++){ //循环x轴
+	                data.data[width*4*i+j*4+0]=getVal(j,i,0);
+	                data.data[width*4*i+j*4+1]=getVal(j,i,1);
+	                data.data[width*4*i+j*4+2]=getVal(j,i,2);
+	                data.data[width*4*i+j*4+3]=255;
+	            }
+	        }
+        	cobj.putImageData(data,0,0);
+        	obj.historys.push(obj.cobj.getImageData(0,0,obj.canvasW,obj.canvasH));
+			obj.num=obj.historys.length-1;
+			//获取颜色值
+			function getVal(x,y,index){
+	            var arr=[];
+	            for(var i=x-r;i<x+r;i++){
+	                for(var j=y-r;j<y+r;j++){
+	                    var newx=i;
+	                    var newy=j;
+	                    if(newx<0){newx=0;}
+	                    if(newy<0){newy=0;}
+	                    if(newx>width-1){newx=width;}
+	                    if(newy>height-1){newy=height;}
+	                    arr.push(data.data[width*4*newy+newx*4+index]);
+	                }
+	            }
+	            var color=0;
+	            for(var i=0;i<arr.length;i++){
+	                color+=arr[i]*quanzhong[i];
+	            }
+	            return color;
+	        }
+			//权重
+			function getQuanzhong(r){
+	            var arr=[];
+	            var pi=Math.PI;
+	            var e=Math.E;
+	            var sum=0;
+	            for(var x=-r;x<=r;x++){
+	                for(var y=-r;y<=r;y++){
+	                	var val=1/(2*pi*r*r)*Math.pow(e,-((x*x+y*y)/(2*r*r)));
+	                	sum+=val;
+	                	arr.push(val);
+	                }
+	            }
+	            for(var i=0;i<arr.length;i++){
+	                arr[i]=arr[i]/sum;
+	            }
+	            return arr;
+	        }
+		}
+		//样式
+		document.querySelector(".xiantiao").onclick=function(){
+			//线条
+			obj.linetype="stroke";
+		}
+		document.querySelector(".tianchong").onclick=function(){
+			//填充
+			obj.linetype="fill";
+		}
+		//颜色
+		document.querySelector(".red").onclick=function(){
+			//红色
+			obj.color="red";
+		}
+		document.querySelector(".blue").onclick=function(){
+			//蓝色
+			obj.color="blue";
+		}
+		document.querySelector(".yellow").onclick=function(){
+			//黄色
+			obj.color="yellow";
+		}
+		document.querySelector(".green").onclick=function(){
+			//绿色
+			obj.color="green";
+		}
+		document.querySelector("#color").onchange=function(){
+			//自定义
+			obj.color=color.value;
+		}
+		//大小
+		var size=document.querySelector("#size");
+		document.querySelector(".da").onclick=function(){
+			//大
+			obj.linewidth=20;
+			size.value=20;
+		}
+		document.querySelector(".zhong").onclick=function(){
+			//中
+			obj.linewidth=10;
+			size.value=10;
+		}
+		document.querySelector(".xiao").onclick=function(){
+			//小
+			obj.linewidth=2;
+			size.value=2;
+		}
+		size.onchange=function(){
+			//自定义
+			obj.linewidth=size.value;
+		}
+		//键盘事件
+		window.onkeyup=function(e){
+			//撤退
+			console.log(e.keyCode);
+			if(e.ctrlKey&&e.keyCode==90){
+				obj.off();
+			}
+		}
+}
+</script>

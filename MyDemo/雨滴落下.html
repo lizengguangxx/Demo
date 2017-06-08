@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>雨滴</title>
+</head>
+<style>
+    html{
+        overflow: hidden;
+    }
+    body{
+        background: #000;
+        overflow: hidden;
+        width:1000px;
+        margin-top: -300px;
+        margin-left: 50px;
+        height: 1000px;
+    }
+</style>
+<body>
+</body>
+</html>
+<script>
+    window.onload=function () {
+        var deg=0;
+        var num=1;
+        setInterval(function () {
+            deg+=num;
+            //旋转角度
+            document.body.style.transform="rotate("+(Math.sin(deg*Math.PI/100)*20)+"deg)";
+        },50)
+
+
+
+        var cw=document.documentElement.clientWidth;
+        var ch=document.documentElement.clientHeight;
+        var arr=[];
+        for(var i=0;i<300;i++){
+            var l=Math.random()*1000;
+            var div=document.createElement("div");
+            div.style.cssText="top:-10px;transition:all 3s ease-in "+(3*Math.random())+"s;width:3px;height:8px;background:red;position:absolute;left:"+l+"px";
+            arr.push(div);
+            document.body.appendChild(div);
+        }
+        setTimeout(function () {
+            console.log(arr)
+            for(var j=0;j<arr.length;j++){
+                arr[j].style.transform="translate(0,"+(1000)+"px)";
+                    arr[j].addEventListener("webkitTransitionEnd",function () {
+                        this.style.transition="null";
+                        this.style.transform="translate(0,0)";
+                        var that=this;
+                        setTimeout(function () {
+                            that.style.transition="all 3s ease-in "+(3*Math.random())+"s";
+                            that.style.transform="translate(0,"+1000+"px)";
+                        },0)
+                    });
+
+            }
+        },0)
+    }
+</script>

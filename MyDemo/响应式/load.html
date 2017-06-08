@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		
+	</head>
+	<link rel="stylesheet" href="css/mui.css"/>
+	<script src="js/zepto.js"></script>
+	<style>
+		html,body{
+			padding: 0;
+			margin: 0;
+			width: 100%;
+			height: 100%;
+		}
+		.wrap{
+			width: 100vw;
+			height: 100vh;
+			position: relative;
+			overflow: hidden;
+		}
+		header{
+			position: absolute;
+			top: 0;left: 0;
+			width: 100%;
+			height: 40px;
+			text-align: center;
+			background: skyblue;
+			z-index: 1;
+			color: #fff;
+			font-size: 20px;
+			line-height: 40px;
+			
+		}
+		footer{
+			position: absolute;
+			bottom: 0;left: 0;
+			width: 100%;
+			height: 40px;
+			text-align: center;
+			background: skyblue;
+			z-index: 1;
+			color: #fff;
+			font-size: 20px;
+			line-height: 40px;
+		}
+		ul{
+			padding: 40px 0;
+			position: relative;
+		}
+		.shuaxin{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			display: none;
+		}
+		.shuaxin>span{
+			width: 40px;
+			height: 40px;
+			display: block;
+			position: absolute;
+			left: 0;right: 0;top: 45px;
+			margin: auto;
+			border-radius: 50%;
+			border: 2px solid #ccc;
+			border-bottom-color:transparent;
+			border-left-color:transparent;
+		}
+		.load{
+			position: absolute;
+			left: 0;
+			top: bottom;
+			line-height: 40px;
+			width: 100%;
+			text-align: center;
+			display: none;
+		}
+		@keyframes demo{
+			0%{
+				transform: rotate(0deg);
+			}
+			100%{
+				transform: rotate(360deg);
+			}
+		}
+	</style>
+	<body>
+		<div class="wrap">
+			<ul class="mui-table-view">
+				<li class="shuaxin"><span></span></li>
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <img class="mui-media-object mui-pull-left">
+			            <div class="mui-media-body">
+			                幸福
+			                <p class='mui-ellipsis'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+			            </div>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <div class="mui-media-body">
+			                木屋
+			                <p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+			            </div>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <img class="mui-media-object mui-pull-left">
+			            <div class="mui-media-body">
+			                CBD
+			                <p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+			            </div>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <img class="mui-media-object mui-pull-left">
+			            <div class="mui-media-body">
+			                幸福
+			                <p class='mui-ellipsis'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+			            </div>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <div class="mui-media-body">
+			                木屋
+			                <p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+			            </div>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <img class="mui-media-object mui-pull-left">
+			            <div class="mui-media-body">
+			                CBD
+			                <p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+			            </div>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <img class="mui-media-object mui-pull-left">
+			            <div class="mui-media-body">
+			                幸福
+			                <p class='mui-ellipsis'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+			            </div>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <div class="mui-media-body">
+			                木屋
+			                <p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+			            </div>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <img class="mui-media-object mui-pull-left">
+			            <div class="mui-media-body">
+			                CBD
+			                <p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+			            </div>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <img class="mui-media-object mui-pull-left">
+			            <div class="mui-media-body">
+			                幸福
+			                <p class='mui-ellipsis'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+			            </div>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <img class="mui-media-object mui-pull-left">
+			            <div class="mui-media-body">
+			                木屋
+			                <p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+			            </div>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <img class="mui-media-object mui-pull-left"">
+			            <div class="mui-media-body">
+			                CBD
+			                <p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+			            </div>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <img class="mui-media-object mui-pull-left">
+			            <div class="mui-media-body">
+			                幸福
+			                <p class='mui-ellipsis'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+			            </div>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <img class="mui-media-object mui-pull-left">
+			            <div class="mui-media-body">
+			                木屋
+			                <p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+			            </div>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <img class="mui-media-object mui-pull-left"">
+			            <div class="mui-media-body">
+			                CBD
+			                <p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+			            </div>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <img class="mui-media-object mui-pull-left">
+			            <div class="mui-media-body">
+			                幸福
+			                <p class='mui-ellipsis'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+			            </div>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <img class="mui-media-object mui-pull-left">
+			            <div class="mui-media-body">
+			                木屋
+			                <p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+			            </div>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <img class="mui-media-object mui-pull-left"">
+			            <div class="mui-media-body">
+			                CBD
+			                <p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+			            </div>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <img class="mui-media-object mui-pull-left">
+			            <div class="mui-media-body">
+			                幸福
+			                <p class='mui-ellipsis'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+			            </div>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <img class="mui-media-object mui-pull-left">
+			            <div class="mui-media-body">
+			                木屋
+			                <p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+			            </div>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <img class="mui-media-object mui-pull-left"">
+			            <div class="mui-media-body">
+			                CBD
+			                <p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+			            </div>
+			        </a>
+			    </li>
+			    <li class="load">加载中。。。</li>
+			</ul>
+
+			<header>头部</header>
+			<footer>尾部</footer>
+		</div>
+		<script type="text/javascript" src="js/iscroll-probe.js"></script>
+		<script>
+			window.onload=function(){
+				var myScroll = new IScroll('.wrap',{
+					  mouseWheel: true,
+	    			  scrollbars: false,
+	    			  probeType: 3
+				});
+				var flag=true;
+				myScroll.on("scroll",function(){
+					if(!flag){
+						return;
+					}
+					ulh=$("ul").height();
+					h=$(window).height();
+					cha=ulh-h;
+					if(myScroll.y>50){
+						flag=false;
+						$(".shuaxin").css({"position":"static",display:"block"});
+						$(".shuaxin span").css("animation","demo 2s linear infinite");
+						myScroll.refresh();
+						setTimeout(function(){
+							$(".shuaxin").css({display:"none"});
+							$(".shuaxin span").css("animation","none");
+							flag=true;
+							myScroll.refresh();
+						},2000);
+					}else if(myScroll.y<-cha-50){
+						flag=false;
+						$(".load").css({"position":"static",display:"block"});
+						myScroll.refresh();
+						setTimeout(function(){
+							$(".load").css({display:"none"});
+							for(var i=0;i<10;i++){
+								$('<li class="mui-table-view-cell mui-media"><a href="javascript:;"><img class="mui-media-object mui-pull-left"><div class="mui-media-body">CBD<p class="mui-ellipsis">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p></div></a></li>').insertBefore(".load");
+							}
+							flag=true;
+							myScroll.refresh();
+						},2000);
+					}
+				})
+				document.addEventListener('touchmove',function(e){
+					e.preventDefault();
+				},{ passive: false });
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,16 @@
+
+@num:60;
+.for(@i:0,@x:50,@y:0)when(@i<=@num){
+  @a:(360/@num)*pi()/180;
+  @selector:100%/@num*@i;
+  @newx:@x*cos(@a)-@y*sin(@a);
+  @newy:@x*sin(@a)+@y+cos(@a);
+  @{selector}{
+    transform: translate((@newx)*1px,(@newy)*1px);
+  }
+  .for(@i+1,@newx,@newy);
+}
+
+@keyframes demo{
+  .for();
+}

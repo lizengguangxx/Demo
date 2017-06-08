@@ -1,0 +1,13 @@
+{
+	"index.html": {
+		"resources": [
+			"js/zepto.js",
+			"js/touch.js",
+			"css/index.css",
+			"img/banner2.webp",
+			"img/banner3.webp",
+			"img/banner1.webp",
+			"js/index.js"
+		]
+	}
+}

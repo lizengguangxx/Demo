@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>跑酷游戏</title>
+	</head>
+	<script src="jquery.js"></script>
+	<script src="game.js"></script>
+	<script src="touch.js"></script>
+	<script src="hitPix.js"></script>
+	<style>
+		html,body{
+            width:100%;height:100%;
+            overflow: hidden;
+            padding:0;margin: 0;
+        }
+        canvas{
+            background: url(imgs/back/back.jpg);
+            background-repeat:repeat-x;
+        }
+        .xue{
+        	position: fixed;
+        	left: 20px;top: 20px;
+        	width: 200px;
+        	height: 20px;
+			background: transparent;
+			border-radius: 10px;
+			overflow: hidden;
+        }
+        .xueli{
+        	position: absolute;
+        	left: 0;top: 0;
+        	width: 100%;
+        	height: 100%;
+        	background: red;
+        }
+        .fen{
+        	position: fixed;
+        	width: 100%;
+        	height: 200px;
+        	text-align: center;
+        	font-size: 30px;
+        	color: #fff;
+        	left: 0;right:0;top: 10px;
+        	margin: auto;
+        }
+		.zhe{
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			left: 0;
+			top:0;
+			z-index: 10;
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-image: url(imgs/back/bg.jpg);
+		}
+		.start{
+			width: 24%;
+			height: 12%;
+			background-image: url(imgs/back/start.png);
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: contain;
+			position: absolute;
+			left: 0;right: 0;
+			bottom: 30%;
+			margin: auto;
+		}
+		.end{
+			width: 24%;
+			height: 12%;
+			background-image: url(imgs/back/end.png);
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: contain;
+			position: absolute;
+			left: 0;right: 0;
+			bottom: 120%;
+			margin: auto;
+		}
+		.fenshu{
+			width: 30%;
+			height: 10%;
+			text-align: center;
+			position: absolute;
+			left: 0;right: 0;
+			bottom: 50%;
+			margin: auto;
+			font-size: 50px;
+			opacity: 0;
+			color: greenyellow;
+		}
+	</style>
+	<body>
+	<audio src="music/bg.ogg" class="audio" loop></audio>
+	<audio src="music/jump.ogg" class="audio1"></audio>
+	<audio src="music/over.ogg" class="audio2"></audio>
+	<audio src="music/xue.ogg" class="audio3"></audio>
+	<audio src="music/bg2.ogg" class="audio4"></audio>
+		<canvas width="100%" height="100%"></canvas>
+		<div class="zhe">
+			<div class="fenshu">最终距离： <span>0</span>米</div>
+			<div class="start"></div>
+			<div class="end"></div>
+		</div>
+		<!--人物-->
+		<img src="imgs/person/run1.png" alt="" class="run" hidden>
+		<img src="imgs/person/run2.png" alt="" class="run" hidden>
+		<img src="imgs/person/run3.png" alt="" class="run" hidden>
+		<img src="imgs/person/run4.png" alt="" class="run" hidden>
+		<img src="imgs/person/run5.png" alt="" class="run" hidden>
+		<img src="imgs/person/run6.png" alt="" class="run" hidden>
+		<img src="imgs/person/run7.png" alt="" class="run" hidden>
+		<!--障碍物-->
+		<img src="imgs/hinder/z1.png" alt="" hidden class="hinder">
+		<img src="imgs/hinder/z2.png" alt="" hidden class="hinder">
+		<img src="imgs/hinder/z3.png" alt="" hidden class="hinder">
+		<img src="imgs/hinder/z4.png" alt="" hidden class="hinder">
+		<img src="imgs/hinder/z5.png" alt="" hidden class="hinder">
+		<!--跳起来的状态-->
+		<img src="imgs/person/jump.png" hidden alt="" class="jump">
+		<div class="xue">
+			<div class="xueli"></div>
+		</div>
+		<div class="fen">跑酷距离：<span>0</span></div>
+	</body>
+</html>
+<script type="text/javascript">
+	//加载完文字执行的函数
+	document.addEventListener("DOMContentLoaded",function(){
+
+        var jumpg=document.querySelector(".audio");
+        jumpg.play();
+
+		var canvas=document.querySelector("canvas");
+		//跑动的图片
+		var runimg=document.querySelectorAll(".run");
+		//跳跃的图片
+		var jumpimg=document.querySelectorAll(".jump");
+		var hinderimg=document.querySelectorAll(".hinder");
+		var cobj=canvas.getContext("2d");
+		var xueli=document.querySelector(".xueli");
+		$(".start").click(function () {
+            jumpg.pause();
+            var jumpk=document.querySelector(".audio4");
+            jumpk.play();
+		    $(".fenshu").css("opacity","0");
+			$(this).animate({bottom:"120%"},function () {
+				$(".zhe").animate({left:"-100%"},function () {
+                    // 1. 整个游戏的对象
+			        var gameObj=new game(canvas,cobj,runimg,jumpimg,hinderimg,xueli);
+			        gameObj.play(50);//执行方法
+					var time=0;
+					var t=setInterval(function () {
+					    time++;
+						$(".fen span").html(time);
+			        },50)
+                    gameObj.person.y=ch-gameObj.person.height;
+                    for(var i=0;i<gameObj.hinderArr.length;i++){
+                        gameObj.hinderArr[i].y=ch-gameObj.hinderArr[i].height;
+                    }
+                })
+            });
+        })
+        $(".end").click(function () {
+            location.href='';
+        })
+//
+//        //窗口大小改变事件
+		window.onresize=function(){
+			cw=document.documentElement.clientWidth;
+			ch=document.documentElement.clientHeight;
+			//canvas的宽度和高度
+			canvas.height=ch;
+			canvas.width=cw;
+			//背景图片适应屏幕
+			canvas.style.backgroundSize="contain";
+			if(canvas.width/1136<(canvas.height/544)){
+					canvas.style.backgroundSize="cover";
+				}
+			//固定人物y轴的位置
+			gameObj.person.y=ch-gameObj.person.height;
+			for(var i=0;i<gameObj.hinderArr.length;i++){
+				gameObj.hinderArr[i].y=ch-gameObj.hinderArr[i].height;
+			}
+		}
+		//加载先执行一遍窗口大小改变事件
+		window.onresize();
+	})
+</script>

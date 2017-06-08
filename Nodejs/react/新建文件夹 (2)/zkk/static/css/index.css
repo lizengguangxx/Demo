@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    color: #0d71cd;
+}
+
+#cate{
+    height: 80px;
+    margin: 0 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #eee;
+    border: 1px solid #000;
+}
+#news{
+    margin: 0 100px;
+    line-height: 40px;
+    font-size: 16px;
+}
+
+li.active a{
+    color: #ff6f60;!important;
+}

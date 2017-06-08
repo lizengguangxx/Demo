@@ -1,0 +1,45 @@
+#header{
+	width: 100%;
+	height: 56px;
+	background:#fff;
+	border: 1px solid #f0f0f0;
+
+}
+
+#hdbox{
+	width: 1200px;
+    height: 56px;
+    line-height: 56px;
+	font: 14px/55px "微软雅黑";
+	color: #000000;
+    margin: 0 auto;
+}
+#hdbox .left{
+	height: 56px;
+	float: left;
+	
+}
+/*#hdbox .left span{
+	color: #FF0000;
+	font-size: x-large;
+}*/
+#hdbox .left .font{
+	letter-spacing:5px;
+	color: #222;
+	font-weight: 700;
+    font-size: 22px;
+    font-family: Lobster, cursive;
+    line-height: 56px;
+}
+#hdbox .right{
+	height:56px;
+	float: right;
+}
+#hdbox .right li{
+	float: left;
+	margin-left: 10px;
+}
+#hdbox .right li a{
+	color: #000;
+}
+
